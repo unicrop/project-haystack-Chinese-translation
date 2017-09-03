@@ -14,11 +14,12 @@ Haystack REST 服务实现了一系列 ops 或 operations 操作。其中一种�
 
 ## 12.3 URI命名空间
 Haystack服务定义了一个基础HTTP URI地址，并将所有操作映射为该地址下的路径名称。例如：
-
-> http://server/haystack/           // 基础 URI
-> http://server/haystack/{op}       // operation URI 模式
-> http://server/haystack/about      // about op
-> http://server/haystack/read       // read op
+```
+http://server/haystack/           // 基础 URI
+http://server/haystack/{op}       // operation URI 模式
+http://server/haystack/about      // about op
+http://server/haystack/read       // read op
+```
 
 基础URI地址必须以斜杠符号“/”结尾，即使通常并不以这种方式来表示。
 
@@ -29,41 +30,48 @@ Haystack服务定义了一个基础HTTP URI地址，并将所有操作映射为�
 许多操作不需要Grid参数或者单行数据的Grid。 在这种情况下，可以使用HTTP GET方法来执行请求。请求的Grid数据被编码在HTTP查询字符串中，其中每个查询参数与单行Grid标签形成映射关系。标签值必须是Zinc编码的，否则会被当做是Str类型。
 
 使用空grid请求示例：
-> // 请求URI
-> /haystack/about
+```
+// 请求URI
+/haystack/about
 
-> // 使用Zinc编码的grid请求
-> ver:"3.0"
-> empty
+// 使用Zinc编码的grid请求
+ver:"3.0"
+empty
+```
 
-> 单个Str标签的请求示例：
-> // request URI
-> /haystack/read?filter=site
+单个Str标签的请求示例：
+```
+// request URI
+/haystack/read?filter=site
 
-> // 使用Zinc编码的grid请求：
-> ver:"3.0"
-> filter
-> "site"
+// 使用Zinc编码的grid请求：
+ver:"3.0"
+filter
+"site"
+```
 
 使用多个标签编码为Zinc的请求示例：
-> // 请求 URI
-> /haystack/hisRead?id=@hisId&range=yesterday
+```
+// 请求 URI
+/haystack/hisRead?id=@hisId&range=yesterday
 
-> // 编码为Zinc的gird请求
-> ver:"3.0"
-> id,range
-> @hisId,"yesterday"
+// 编码为Zinc的gird请求
+ver:"3.0"
+id,range
+@hisId,"yesterday"
+```
 
 ### 12.4.2 POST 请求
 如果请求Gird不是单行键值对，就必须使用HTTP POST发送请求。客户端必须使用服务器支持的MIME类型对Grid进行编码。客户端可以使用格式化的op查询被支持的MIME类型。以下是使用Zinc通过POST请求hisRead op的示例：
-
-> POST /haystack/hisRead HTTP/1.1
+```
+POST /haystack/hisRead HTTP/1.1
 Content-Type: text/zinc; charset=utf-8
 Content-Length: 39
 
-> ver:"3.0"
-> id,range
-> @outsideAirTemp,"yesterday"
+ver:"3.0"
+id,range
+@outsideAirTemp,"yesterday"
+```
 
 ## 12.5 响应
 如果请求Gird数据由服务器成功读取，服务器将处理该操作并返回HTTP状态代码200，并把响应结果序列化为MIME编码的Grid。
