@@ -13,10 +13,12 @@ Compliant HTTP implementations must implement the authentication protocol specif
 
 ## 12.3 URI Namespace
 A haystack server defines a HTTP URI as its base address. Operations are then mapped as path names under that address. Example:
-> http://server/haystack/           // base URI
-> http://server/haystack/{op}       // operation URI pattern
-> http://server/haystack/about      // about op
-> http://server/haystack/read       // read op
+```
+http://server/haystack/           // base URI
+http://server/haystack/{op}       // operation URI pattern
+http://server/haystack/about      // about op
+http://server/haystack/read       // read op
+```
 
 The base URI must be assumed to end with a trailing slash even if it is not always expressed that way.
 
@@ -27,40 +29,48 @@ A client makes a request to a server by sending a single grid and the server res
 Many operations require no grid argument or a grid with a single row. In this case, a request may be performed using a HTTP GET request. The request grid is encoded in the HTTP query string where each query parameter is mapped to tags in a single row. The tag value must be Zinc encoded, otherwise it is assumed to be of a Str type.
 
 Example of request with empty grid:
-> // request URI
-> /haystack/about
+```
+// request URI
+/haystack/about
 
-> // request grid in Zinc
-> ver:"3.0"
-> empty
+// request grid in Zinc
+ver:"3.0"
+empty
+```
 
 Example of request with single Str tag:
-> // request URI
-> /haystack/read?filter=site
+```
+// request URI
+/haystack/read?filter=site
 
-> // request grid in Zinc
-> ver:"3.0"
-> filter
-> "site"
+// request grid in Zinc
+ver:"3.0"
+filter
+"site"
+```
 
 Example of request with multiple tags encoded as Zinc:
-> // request URI
-> /haystack/hisRead?id=@hisId&range=yesterday
+```
+// request URI
+/haystack/hisRead?id=@hisId&range=yesterday
 
-> // request grid in Zinc
-> ver:"3.0"
-> id,range
-> @hisId,"yesterday"
+// request grid in Zinc
+ver:"3.0"
+id,range
+@hisId,"yesterday"
+```
 
 ### 12.4.2 POST Requests
 If the request grid is anything other than a single row of name/value pairs, then it must be be sent using HTTP POST. The client must encode the grid using a MIME type supported by server. The client can query the supported MIME types using the formats op. The following is an example of posting to the hisRead op using Zinc:
-> POST /haystack/hisRead HTTP/1.1
+```
+POST /haystack/hisRead HTTP/1.1
 Content-Type: text/zinc; charset=utf-8
 Content-Length: 39
 
-> ver:"3.0"
-> id,range
-> @outsideAirTemp,"yesterday"
+ver:"3.0"
+id,range
+@outsideAirTemp,"yesterday"
+```
 
 ## 12.5 Responses
 If the request grid is successfully read by the server, then it processes the operation and returns the HTTP status code 200 and serializes the response result as a MIME encoded grid.
@@ -94,9 +104,10 @@ Request errors occur after the server has successfully read the request grid. If
 If a operation failed after a request grid is successfully read by a server, then the server returns an error grid. An error grid is indicated by the presence of the err marker tag in the grid metadata. All error grids must also include a dis tag in the grid metadata with a human readable descripton of the problem. If the server runtime supports stack traces, this should be reported as a multi-line string via the errTrace tag in the grid metadata.
 
 Example of an error grid encoded as Zinc:
-
-> ver:"3.0" err dis:"Cannot resolve id: badId" errTrace:"UnknownRecErr: badId\n  ...."
-> empty
+```
+ver:"3.0" err dis:"Cannot resolve id: badId" errTrace:"UnknownRecErr: badId\n  ...."
+empty
+```
 
 Clients must always check for the present of the err grid marker tag to determine if the reponse is an error or a valid result.
 
@@ -112,20 +123,20 @@ The following "Accept" header MIME types are standardized:
 If you specify an "Accept" header for an unsupported MIME type, then the 406 Unacceptable error code is returned.
 
 Example for reading all site entities as CSV:
-
-> GET /haystack/read?filter=site
-> Content-Type: text/plain; charset=utf-8
-> Accept: text/csv
+```
+GET /haystack/read?filter=site
+Content-Type: text/plain; charset=utf-8
+Accept: text/csv
 
 Response:
 
-> HTTP/1.1 200 OK
-> Content-Type: text/csv; charset=utf-8
+HTTP/1.1 200 OK
+Content-Type: text/csv; charset=utf-8
 
-> dis,area,geoAddr
-> Site A,2000ft²,"1000 Main St,Richmond,VA"
-> Site B,3000ft²,"2000 Cary St,Richmond,VA"
-> All "text/" media type must be be encoded using UTF-8.
+dis,area,geoAddr
+Site A,2000ft²,"1000 Main St,Richmond,VA"
+Site B,3000ft²,"2000 Cary St,Richmond,VA"
+```
 
 All "text/" media type must be be encoded using UTF-8.
 

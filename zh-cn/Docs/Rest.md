@@ -100,3 +100,59 @@ HTTP错误发生在TCP连接可以成功建立，但服务器无法在HTTP层面
 + 未知或无效的实体标识符
 + 不一致的数据类型或数据值
 + 服务器内部错误或异常
+
+## 12.7 错误 Grid
+如果服务器成功读取请求grid后操作失败，则服务器返回错误grid。错误grid由其元数据中err标签所标记。所有错误grid也必须在元数据中包含一个dis标签，该标签包含可被人理解的问题描述。如果服务器运行时支持堆栈跟踪，则应通过元数据中的errTrace标签获取多行字符串的报告。
+
+编码为Zinc的错误grid示例：
+```
+ver:"3.0" err dis:"Cannot resolve id: badId" errTrace:"UnknownRecErr: badId\n  ...."
+empty
+```
+
+客户端必须始终检查err标签是否存在，以确定响应是错误还是有效结果。
+
+## 12.8 内容协商
+所有REST操作的默认值是将结果返回为使用Zinc格式化的MIME类型"text/plain" 的grid（或grids）。您可以通过在HTTP请求中指定 "Accept" 头来获取其他可选格式的结果。
+
+下列是标准的"Accept"头与数据格式的对应关系：
+
++ Zinc: text/plain, text/zinc, */*, or unspecified
++ Csv: text/csv
++ Json: application/json
+
+如果指定了MIME类型不支持的 "Accept" 头，则会返回406（不接受）错误代码。
+
+以CSV格式读取所有site对象的示例：
+```
+GET /haystack/read?filter=site
+Content-Type: text/plain; charset=utf-8
+Accept: text/csv
+
+响应：
+
+HTTP/1.1 200 OK
+Content-Type: text/csv; charset=utf-8
+
+dis,area,geoAddr
+Site A,2000ft²,"1000 Main St,Richmond,VA"
+Site B,3000ft²,"2000 Cary St,Richmond,VA"
+All "text/" media type must be be encoded using UTF-8.
+```
+
+注意：必须使用UTF-8对所有 "text/" 类型进行编码。
+
+## 12.9 监视（Watchs）
+Haystack采用oBIX的监视设计来处理实时订阅。监视是一种有状态的轮询机制，旨在通过HTTP高效工作。
+
+监视的生命周期如下：
+
+1. 客户端使用watchSub操作创建一个新的监视实例
+2. 客户端使用watchPoll操作轮询已改变的实体对象
+3. 客户端使用watchUnsub显式关闭监视，或者当客户端会话超时不能轮询时，服务器将自动关闭监视
+
+在一个监视的生命周期内，客户可以选择：
+
+1. 使用watchSub向监视添加新实体
+2. 使用watchUnsub从监视中移除实体
+3. 使用watchPoll执行轮询刷新以重新读取所有监视的实体
