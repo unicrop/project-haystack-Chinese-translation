@@ -1,7 +1,8 @@
-# Overview
+# 9 Json
+## 9.1 Overview
 JSON stands for JavaScript Object Notation. It is a plain text format commonly used for serialization of data. It is specified in RFC 4627. The JSON format is designed to support 100% fidelity with with the full Haystack type system.
 
-# Type Mapping
+## 9.2 Type Mapping
 The following is the mapping between Haystack and JSON types:
 ```
 Haystack      JSON
@@ -47,7 +48,7 @@ dis: "Site-A", site, area: 5000ft², built: 1992-01-23
 
 The Haystack and JSON models are very similiar since they both support the same core list and object/dict types. The difference is that Haystack has a richer set of scalar types such as Date, Time, Uri which are not supported directly by JSON; so we encode them as strings using a special type code prefix.
 
-# Grid Format
+## 9.3 Grid Format
 In addition to the flexible type mapping defined above, we have a standard mapping of Grid into JSON which is used by the REST API.
 
 The Grid to JSON mapping is as follows:
