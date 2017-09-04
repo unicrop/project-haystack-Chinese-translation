@@ -7,7 +7,7 @@ The Chinese translation of http://project-haystack.org/
 + [**关于**](zh-cn/About/About.md)
 + [**文档**](zh-cn/Docs)
   + [**简介**](zh-cn/Docs/Intro.md)
-  + 标签模型
+  + [**标签模型**](zh-cn/Docs/TagModel.md)
   + 结构
   + 时区
   + 单位
