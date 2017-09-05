@@ -15,44 +15,44 @@ Haystack没有对实体的存储或管理方式进行任何具体设计，而是
 
 如果一个实体的具体定义被存储在数据库中，那么我们将使用术语record或rec与实体（entity）互换。我们经常使用REST API中的术语rec来描述客户端与haystack实体的服务器数据库间的交互。
 
-## 2.3 Tags
-A tag is a name/value pair applied to an entity. A tag defines a fact or attribute about an entity. For example if we apply the site tag to an entity, then we are declaring that the entity represents a building. If we also add the geoAddr tag we are declaring the street address of the building.
+## 2.3 标签
+标签是应用于实体的键/值对。标签定义关于实体的事实或属性。例如，如果我们将 site 标签应用于某个实体，意味着我们声明该实体代表一个建筑物。 如果我们还添加了 geoAddr 标签，我们则声明了此建筑物的街道地址。
 
-### 2.3.1 Tag Names
-Tag names are restricted to the following characters:
+### 2.3.1 标签名称
+标签名称仅限于以下字符：
 
-+ Must start with ASCII lower case letter (a-z)
-+ Must contain only ASCII letters, digits, or underbar (a-z, A-Z, 0-9, _)
-+ By convention use camel case (fooBarBaz)
++ 必须以ASCII码小写字母(a-z)开头
++ 必须只包含ASCII码字母，数字或下划线(a-z, A-Z, 0-9, _)
++ 按惯例使用驼峰命名法 (fooBarBaz)
 
+限制使用标签名称，确保它们可以方便地用作编程语言和数据库中的标识符。
 Restricting tag names, ensures they may be easily used as identifiers in programming languages and databases.
 
-### 2.3.2 Tag Kinds
-A kind is one of the permitted value types of a tag. The following are the atomic scalar tag kinds:
-
-+ **Marker:** the tag is merely a marker annotation and has no meaningful value. Marker tags are used to indicate a "type" or "is-a" relationship.
-+ **Bool:** boolean "true" or "false".
-+ **NA:** singleton value which represents not available for missing data
-+ **Number:** integer or floating point number annotated with an optional unit of measurement.
-+ **Str:** a string of Unicode characters.
-+ **Uri:** a Unversial Resource Identifier.
-+ **Ref:** reference to another entity. Haystack doesn't prescribe a specific identity or reference mechanism, but they should be some way to cross link entities. Also see Containment. We format refs with a leading "@" and require a specific subset of ASCII characters be used: a-z, A-Z, 0-9, underbar, colon, dash, dot, or tilde.
-+ **Bin:** a binary blob with a MIME type formatted as Bin(text/plain)
-+ **Date:** an ISO 8601 date as year, month, day: 2011-06-07.
-+ **Time:** an ISO 8601 time as hour, minute, seconds: 09:51:27.354.
-+ **DateTime:** an ISO 8601 timestamp followed by timezone name:
+### 2.3.2 标签种类
+一个标签种类是指标签所允许某个值类型。以下是原子标量标签类型：
++ **Marker:** 标签只是一个标记注释，不包含有意义的值。标记标签用于表示“类型”或“is-a”关系。
++ **Bool:** 布尔类型表示“true”或“false”。
++ **NA:** 单例值，表示缺失数据，且无法获取。
++ **Number:** 某点位的整型或浮点型数据，并标注可选的测量单位。
++ **Str:** Unicode字符串。
++ **Uri:** 统一资源标识符。
++ **Ref:** 另一个实体的引用。Haystack没有规定具体的身份或引用机制，但它们应该是交叉链接实体的一种方式。另请参阅[Containment]()。我们以“@”字符开头格式化 Ref，并且需要使用特定的ASCII字符子集：a-z，A-Z，0-9，下划线，冒号，破折号，点或波浪号。
++ **Bin:** 格式为Bin(text/plain)的MIME类型的二进制大对象。
++ **Date:** ISO 8601标准日期，例如“年月日”表示为：2011-06-07。
++ **Time:** ISO 8601标准时间，例如“时分秒”表示为：09:51:27.354。
++ **DateTime:** ISO 8601标准时间戳，后跟时区名称：
 ```
 2011-06-07T09:51:27-04:00 New_York
 2012-09-29T14:56:18.277Z UTC
 ```
-+ **Coord:** geographic coordinate in latitude/longitude formatted as C(lat,lng)
-+ **XStr:** extended typed string which specifies a type name a string encoding
++ **Coord:** 纬度/经度的地理坐标格式为C(lat,lng)。
++ **XStr:** 扩展类型的字符串，其指定一个类型名称和一个字符串编码。
 
-There are three collection tag kinds:
+有三种集合标签类型：
 
-+ **List:** list of zero or more values
-+ **Dict:** an associated array of name/value tag pairs
-+ **Grid:** a two dimensional table of columns and rows, see Grids 
++ **List:** 零个或多个值的列表
++ **Dict:** 相关联的键/值标签对数组
++ **Grid:** 包含行和列的二维表，请参阅[Grids]()
 
 ## 2.4 Id
 The id tag is used model the unique identifier of an entity in system using a Ref value type. The scope of an entity is undefined, but must be unique with a given system or project. This identifier may be used by other entities to cross-reference using tags such as siteRef, ahuRef, etc.
