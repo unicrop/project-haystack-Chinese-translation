@@ -55,13 +55,13 @@ Restricting tag names, ensures they may be easily used as identifiers in program
 + **Grid:** 包含行和列的二维表，请参阅[Grids]()
 
 ## 2.4 Id
-The id tag is used model the unique identifier of an entity in system using a Ref value type. The scope of an entity is undefined, but must be unique with a given system or project. This identifier may be used by other entities to cross-reference using tags such as siteRef, ahuRef, etc.
+id标签使用Ref值类型对系统中的实体的唯一标识进行建模。虽然实体的范围未定义，但在给定的系统或项目中必须是唯一的。该标识符可被其他实体用来交叉引用诸如 siteRef，ahuRef等正在使用的标签。
 
 ## 2.5 Dis
-The dis tag is used with all entities as the standard way to define the display text used to describe the entity. Dis values should be short (less than 30 or 40 characters), but fully descriptive of the entity.
+dis标签被用于所有实体，它是定义描述实体的显示文本的标准方式。Dis标签的值应当简短（小于30或40个字符），但又能充分描述实体。
 
 ## 2.6 Example
-Let's look a simple example for an entity describing a site:
+我们来看一个描述某站点的实体的简单例子：
 ```
 id: @whitehouse
 dis: "White House"
@@ -71,7 +71,4 @@ geoAddr: "1600 Pennsylvania Avenue NW,  Washington, DC"
 tz: "New_York"
 weatherRef: @weather.washington
 ```
-In the example above we have an entity with seven tags: id, site, dis, area, geoAddr, tz, and weatherRef. By convention when writing examples we will list each tag on their own line or separated by a comma. The site tag has no explicit value, so it is assumed to be marker tag. The dis, geoAddr, and tz tags have string values indicated by double quotes. The area tag has a number value indicated by a scalar with unit of square feet. The weatherRef tag is a reference to another entity, which we indicate using the "@" character.
-
-
-
+在上面的例子中，我们有一个包含七个标签的实体：id，site，dis，area，geoAddr，tz和weatherRef。 按惯例编写示例时，我们将分行列出每个标签或用逗号分隔。site标签没有明确的值，因此它被看做标识标签。 dis，geoAddr和tz标签具有双引号表示的字符串值。区域标签具有以平方英尺为单位的标量表示的数字值。 weatherRef标签是对另一个实体的引用，我们使用“@”字符表示。
