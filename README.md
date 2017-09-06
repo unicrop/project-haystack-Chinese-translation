@@ -7,8 +7,8 @@ The Chinese translation of http://project-haystack.org/
 + [**关于**](zh-cn/About/About.md)
 + [**文档**](zh-cn/Docs)
   + [**简介**](zh-cn/Docs/Intro.md)
-  + [**标签模型**](zh-cn/Docs/TagModel.md)
-  + 结构
+  + [**标签模型**](zh-cn/Docs/TagModel.md)(TagModel)
+  + [**结构**](zh-cn/Docs/Structure.md)(Structure)
   + 时区
   + 单位
   + 二维表(Grids)
