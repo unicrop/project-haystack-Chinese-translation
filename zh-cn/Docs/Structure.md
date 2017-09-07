@@ -11,21 +11,22 @@ Haystack模型的主要结构是基于三个实体的层次结构：
 + Weather: 外部天气条件
 
 下图说明了这个基本的三级层次结构以及它们如何交叉引用：
+
 ![](siteEquipPoint.png)
 
-## 3.2 容器
-Haystack is not based on a "tree structure" per se, however tree structures can be defined using reference tags. Since a given entity can have multiple reference tags, it easy to define multi-dimensional tree structures.
+## 3.2 容器(Containment)
+Haystack本身不是基于“树结构”，但是可以使用[引用标签](TagModel#tagKinds)定义树结构。 由于给定的实体可以有多个引用标签，因此可以很容易地定义多维树结构。
 
-The core site/equip/point model is used as the primary tree structure and basic framework. However, alternate structures can be equally important for analytics:
+核心 Site/Equip/Point 模型用作主干树结构和基本框架。然而，替代结构对于分析可能同样重要：
 
-+ Electrical Distribution: how are meters, submeters, and electrical loads related?
-+ Air Distribution: how are AHUs, VAVs, and zones related?
-+ Chilled Water/Steam Distribution: how are AHUs, central plants, boilers, and chillers related?
++ Electrical Distribution: 电表，子电表和电气负载如何相关？
++ Air Distribution: AHU，VAV和区域如何相关？
++ Chilled Water/Steam Distribution: AHU，中央设备，锅炉和制冷机如何相关？
 
-Due to the complexity of the domain, you should not assume that any one tree structure can be used to fully describe a building and its equipment. It is better to think of a Haystack project as a data graph where entities have multiple relationships defined using reference tags.
+由于领域的复杂性，您不应该假设任何一个树结构都可用于完全描述建筑物及其设备。最好把 Haystack project 看作一个数据图，其中实体使用引用标签定义了多种关系。
 
-## 3.3 Site
-A site entity models a single facility using the site tag. A good rule of thumb is to model any building with its own street address as its own site. For example a campus is better modeled with each building as a site, versus treating the entire campus as one site.
+## 3.3 站点(Site)
+站点实体使用 site 标签对单个设施进行建模。在对任何楼宇进行建模时，一个很好的经验法则是将其街道地址作为自己的站点。 例如，在对校园进行建模时，更好的方式是把每个建筑物作为一个站点，而不是把整个校园作为一个站点。
 
 Core tags used with sites:
 
