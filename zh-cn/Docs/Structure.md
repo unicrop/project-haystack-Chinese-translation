@@ -28,16 +28,16 @@ Haystack本身不是基于“树结构”，但是可以使用[引用标签](Tag
 ## 3.3 站点(Site)
 站点实体使用 site 标签对单个设施进行建模。在对任何楼宇进行建模时，一个很好的经验法则是将其街道地址作为自己的站点。 例如，在对校园进行建模时，更好的方式是把每个建筑物作为一个站点，而不是把整个校园作为一个站点。
 
-Core tags used with sites:
+站点使用的核心标签:
 
-+ geoAddr: the geographic free-form address of the site (which might include other geolocation tags such as geoCity or geoCoord)
-+ tz: the timezone where the site is located
-+ area: square footage or square meters of the facility. This enables site normalization by area.
-+ weatherRef: associate the site with a weather station to visualize weather conditions and perform weather based energy normalization
-+ primaryFunction: enumerated string which describes the primary function of the building
-+ yearBuilt: four digit year in which the building was constructed
++ geoAddr: 自由格式的站点地理地址（可能包括其他地理位置标签，如geoCity或geoCoord）
++ tz: 站点所在的时区
++ area: 设施的平方英尺或平方米。这使得站点通过面积进行规范。
++ weatherRef: 将该站点与气象站相关联，用以可视化天气状况并执行基于天气的能量归一化
++ primaryFunction: 描述建筑物主要功能的枚举字符串
++ yearBuilt: 建筑物四位数的建造年份
 
-Here is an example of a site entity fully tricked out with geolocation tags:
+以下是一个使用地理位置标签充分展示一个站点实体的示例：
 ```
 id: @whitehouse
 dis: "White House"
@@ -53,12 +53,12 @@ geoPostalCode: "20500"
 geoCoord: C(38.898, -77.037)
 ```
 
-## 3.4 Equip
-Equipment is modeled using the equip tag. Equipment is often a physical asset such as an AHU, boiler, or chiller. However, equip can also be used to model a logical grouping such as a chiller plant.
+## 3.4 设备
+设备使用 equip 标签进行建模。设备通常是一个物理资产，如AHU，锅炉或冷水机。然而，equip标签也可以用于对诸如冷水机组之类的逻辑分组进行建模。
 
-All equipment should be associated within a single site using the siteRef tag. In turn, equipment will often contain points which are are associated with the equipment via the equipRef tag.
+所有设备应使用 siteRef 标签在单个站点内进行关联。反过来，设备通常会包含使用 equipRef 标签与该设备相关联的点。
 
-Here is an example of a AHU equipment entity:
+以下是一个AHU设备实体的示例：
 ```
 id: @whitehouse.ahu3
 dis: "White House AHU-3"
@@ -66,18 +66,20 @@ equip
 siteRef: @whitehouse
 ahu
 ```
-The equipRef tag can optionally be used on equip entities to model nested equipment and containment relationships.
+equipRef 标签可以根据需要用于设备实体，以此来对嵌套设备和容器关系进行建模。
 
-## 3.5 Point
-Points are typically a digital or analog sensor or actuator entity (sometimes called hard points). Points can also represent a configuration value such as a setpoint or schedule log (sometimes called soft points). Point entities are tagged with the point tag.
+## 3.5 点
+点通常是数字或模拟传感器或执行器实体（有时称为硬点）。点也可以表示一个配置值，例如设定值或计划日志（有时称为软点）。点实体用 point 标签标记。
 
-All points are further classified as sensors, commands, or setpoints using one of the following three tags:
+所有点进一步分类为传感器，指令或设定点，使用以下三个标签之一：
 
-+ sensor: input, AI/BI, sensor
-+ cmd: output, AO/BO, actuator, command
-+ sp: setpoint, internal control variable, schedule
++ sensor: 输入, AI/BI, 传感器
++ cmd: 输出, AO/BO, 执行器, 指令
++ sp: 设定点, 内部控制变量, 时间表
 
-All points must be associated with a site via the siteRef tag and a specific piece of equipment via the equipRef tag. If a point doesn't have physical equipment relationship, then use a virtual equip entity to model a logical grouping.
+所有的点必须使用 siteRef 标签和站点相关联，使用 equipRef 标签与特定的设备相关联。 如果某一点没有物理设备关系，则使用虚拟设备实体对逻辑分组进行建模。
+
+按照惯例，使用多个标签对一个点的作用进行建模：
 
 By convention multiple tags are used to model the role of a point:
 
@@ -85,7 +87,7 @@ By convention multiple tags are used to model the role of a point:
 + what: air, water, steam
 + measurement: temp, humidity, flow, pressure
 
-Here is an example of an AHU discharge air temperature input point:
+以下是AHU排气温度输入点的示例：
 ```
 id: @whitehouse.ahu3.dat
 dis: "White House AHU-3 DischargeAirTemp"
@@ -100,12 +102,12 @@ kind: "Number"
 unit: "°F"
 ```
 
-### 3.5.1 Point Kinds
-Points are classified as Bool, Number, or Str using the kind tag:
+### 3.5.1 点的分类
+点分为Bool，Number或Str三种类型，使用 kind 标签进行区分：
 
-+ Bool: model digital points as true/false. Bool points may also define an enum tag for the text to use for the true/false states
-+ Number: model analog ponts such as temperature or pressure. These points should also include the unit to indicate the point's unit of measurement.
-+ Str: models an enumerated point with a mode such as "Off, Slow, Fast". Enumeraed points should also define an enum tag.
++ Bool: 以true或false来模拟数字量的点。Bool点也可以为文本定义一个枚举标签，用于true或false的状态
++ Number: 模拟诸如温度或压力等模拟量的点。这些点也应该包含 unit 用以指示该点的测量单位。
++ Str: 用“关闭，慢速，快速”等模式对枚举点进行建模。枚举点也应该定义一个 enum 标签。
 
 ### 3.5.2 Point Min/Max
 The following tags may be used to define a minimum and/or maximum for the point:

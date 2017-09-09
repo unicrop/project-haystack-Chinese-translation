@@ -26,7 +26,6 @@ Haystack没有对实体的存储或管理方式进行任何具体设计，而是
 + 按惯例使用驼峰命名法 (fooBarBaz)
 
 限制使用标签名称，确保它们可以方便地用作编程语言和数据库中的标识符。
-Restricting tag names, ensures they may be easily used as identifiers in programming languages and databases.
 
 ### 2.3.2 标签种类
 一个标签种类是指标签所允许某个值类型。以下是原子标量标签类型：
