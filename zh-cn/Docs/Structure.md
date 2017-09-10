@@ -109,33 +109,33 @@ unit: "°F"
 + Number: 模拟诸如温度或压力等模拟量的点。这些点也应该包含 unit 用以指示该点的测量单位。
 + Str: 用“关闭，慢速，快速”等模式对枚举点进行建模。枚举点也应该定义一个 enum 标签。
 
-### 3.5.2 Point Min/Max
-The following tags may be used to define a minimum and/or maximum for the point:
+### 3.5.2 点的最小值和最大值
+以下标签可用来定义点的最小值和（或）最大值：
 
-+ minVal: minimum point value
-+ maxVal: maximum point value
++ minVal: 点的最小值
++ maxVal: 点的最大值
 
-When these tags are applied to a sensor point, they model the range of values the sensor can read and report. Values outside of these range might indicate a fault condition in the sensor.
+当这些标签应用于传感器点时，它们会模拟传感器可以读取和报告的值的范围。超出这些范围的值可能表示传感器的故障状态。
 
-When these tags are applied to a cmd or sp, they model the range of valid user inputs when commanding the point.
+当这些标签应用于 cmd 或 sp，在对点执行指令时，它们规范有效的用户输入范围。
 
-### 3.5.3 Point Cur
-The term cur indicates synchronization of a point's current real-time value. By real-time we typically mean freshness within the order of of a few seconds. If a point supports a current or live real-time value then it should be tagged with cur tag.
+### 3.5.3 点的当前值
+术语“cur”表示点的当前实时值的同步。实时通常意味着每过几秒钟就会更新一次。如果一个点支持当前或现场的实时值，那么它应该用 cur 标签标记。
 
-The following tags are used to model the current value and status:
+以下标签用于表示当前值和状态：
 
-+ curVal: current value of the point as Number, Bool, or Str
-+ curStatus: ok, down, fault, disabled, or unknown
-+ curErr: error message if curStatus indicated error
++ curVal: 点的当前值，可以是Number，Bool或Str
++ curStatus: ok, down, fault, disabled 或 unknown
++ curErr: 如果 curStatus 为出错状态，curErr 则表示错误信息。
 
 ### 3.5.4 Point Write
-Writable points are points which model an output or setpoint and may be commanded. Writable points are modeled on the BACnet 16-level priority array with a relinquish default which effectively acts as level 17. Writable points which may be commanded by the pointWrite operation should be tagged with the writable tag.
+可写点是对输出或设定值进行建模并可被指令控制的点。可写点在BACnet 16级优先级数组上建模，作为有效的第17级，而非默认值。可写点可以由 pointWrite 操作发送指令，并使用 writable 标签进行标记。
 
-The following levels have special behavior:
+以下级别有特殊的行为：
 
-+ **Level 1:** highest priority reserved for emergency overrides
-+ **Level 8:** manual override with ability to set timer to expire back to auto
-+ **Default:** implicitly acts as level 17 for relinquish default
++ **Level 1:** 最高优先级，被保留用于紧急情况下的覆写
++ **Level 8:** 手动覆写，能够将定时器设置为自动恢复
++ **Default:** 隐含地作为第17级并放弃默认值
 
 The priority array provides for contention resolution when many different control applications may be vying for control of a given point. Low level applications like scheduling typically control levels 14, 15, or 16. Then users can override at level 8. But a higher levels like 2 to 7 can be used to trump a user override (for example a demand response energy routine that requires higher priority).
 
