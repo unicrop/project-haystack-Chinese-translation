@@ -128,7 +128,7 @@ unit: "°F"
 + curStatus: ok, down, fault, disabled 或 unknown
 + curErr: 如果 curStatus 为出错状态，curErr 则表示错误信息。
 
-### 3.5.4 Point Write
+### 3.5.4 点的写入
 可写点是对输出或设定值进行建模并可被指令控制的点。可写点在BACnet 16级优先级数组上建模，作为有效的第17级，而非默认值。可写点可以由 pointWrite 操作发送指令，并使用 writable 标签进行标记。
 
 以下级别有特殊的行为：
@@ -137,16 +137,16 @@ unit: "°F"
 + **Level 8:** 手动覆写，能够将定时器设置为自动恢复
 + **Default:** 隐含地作为第17级并放弃默认值
 
-The priority array provides for contention resolution when many different control applications may be vying for control of a given point. Low level applications like scheduling typically control levels 14, 15, or 16. Then users can override at level 8. But a higher levels like 2 to 7 can be used to trump a user override (for example a demand response energy routine that requires higher priority).
+当许多不同的控制应用程序可能争夺给定点的控制权时，优先级数组提供了争用解决方案。诸如时间表这样的的低级应用程序通常控制级别为14,15或16。那么用户可以在级别8上覆写。但是可以使用更高级别（如2到7）来胜过用户覆写（例如一个需要更高级别需求响应的能源事务）。
 
-The actual value to write is resolved by starting at level 1 and working down to relinquish default to find the first non-null value. It is possible for all levels to be null, in which case the overall write output is null (which in turn may be auto/null to another system). Anytime a null value is written to a priority level, we say that level has been set to auto or released (this allows the next highest level to take command of the output).
+要写入的实际值通过从第1级开始解析，并且逐级下调至默认值以找到第一个非空值。在所有级别都为空的情况下，总写入输出为空（这又可能是另一个系统的自动/空值）。无论何时将空值写入优先级，我们认为该级别已设置为自动或释放（这允许下一个最高级别对输出进行控制）。
 
-The following tags are used to model the writable state of a point:
+以下标签用来对点的可写状态进行建模：
 
-+ writeVal: this is the current "winning" value of the priority array, or if this tag is missing then the winning value is null
-+ writeLevel: number from 1 to 17 indicate the winning priority array level
-+ writeStatus: status of the server's ability to write the last value to the output device: ok, disabled, down, fault.
-+ writeErr: indicates the error message if writeStatus is error condition
++ writeVal: 这是当前优先级数组的“获胜”值，或者如果没有该标签，则获胜值为null
++ writeLevel: 从1到17的数字表示获胜优先级数组
++ writeStatus: 服务器将最后一个值写入输出设备的能力的状态：ok，disabled，down，fault。
++ writeErr: 如果在 writeStatus 是错误的情况下，writeErr 表示错误消息
 
 ### 3.5.5 Point His
 If a point is historized this means that we have a time-series sampling of the point's value over a time range. Historized points are sometimes called logged or trended points. Historized points should be tagged with the his tag.
