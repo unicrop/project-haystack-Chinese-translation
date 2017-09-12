@@ -9,7 +9,7 @@ The Chinese translation of http://project-haystack.org/
   + [**简介**](zh-cn/Docs/Intro.md)
   + [**标签模型**](zh-cn/Docs/TagModel.md)(TagModel)
   + [**结构**](zh-cn/Docs/Structure.md)(Structure)
-  + 时区
+  + [**时区**](zh-cn/Docs/TimeZones.md)(TimeZones)
   + 单位
   + 二维表(Grids)
   + 过滤(Filters)
