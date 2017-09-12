@@ -148,51 +148,49 @@ unit: "°F"
 + writeStatus: 服务器将最后一个值写入输出设备的能力的状态：ok，disabled，down，fault。
 + writeErr: 如果在 writeStatus 是错误的情况下，writeErr 表示错误消息
 
-### 3.5.5 Point His
-If a point is historized this means that we have a time-series sampling of the point's value over a time range. Historized points are sometimes called logged or trended points. Historized points should be tagged with the his tag.
+### 3.5.5 点的历史
+如果一个点被历史化，这意味着我们在一个时间范围内对点的值进行了时间序列抽样。历史点有时称为记录点（logged）或趋势点（trended）。历史点应该用 标签 his 标记。
 
-Historized points can have their time-series data read/write over HTTP via the hisRead and hisWrite operations.
+历史点可以使用 hisRead 和 hisWrite 操作通过HTTP读取/写入其时间序列数据。
 
-If a point implements the his tag, then it should also implement these tags:
+如果一个点实现了 his 标签，那么它也应该实现以下标签：
 
-+ tz: all historized points must define this tag with their timezone name (must match the point's site timezone)
-+ hisInterpolate: optionally defined to indicate whether the point is logged by interval of change-of-value
-+ hisTotalized: optionally defined to indicate a point is collected an ongoing accumulated value
++ tz: 所有历史点必须使用其时区名称来定义此标签（必须与该点的站点的时区相匹配）
++ hisInterpolate: 该标签可选，表示该点是否以值的变化间隔进行记录
++ hisTotalized: 该标签可选，表示该点是否记录了持续的累计值。
 
-The current status of historization is modeled with:
+点的当前历史状态被建模为：
 
 + hisStatus: ok, down, fault, disabled, pending, syncing, unknown
-+ hisErr: error message if hisStatus indicated error
++ hisErr: 如果 hisStatus 表示错误，则 hisErr 为错误信息
 
-## 3.6 Weather
-Building operations and energy usage are heavily influenced by weather conditions. This makes modeling of weather data a critical feature of Project Haystack. Because weather stations and measurements are often shared across multiple buildings, weather is not modeled as part of a site. Rather the weather tag models a separate top-level entity which represents a weather station or logical grouping of weather observations.
+## 3.6 天气
+建筑运营和能源使用在很大程度上受到天气条件的影响。这使得对天气数据进行建模成为 Project Haystack 的一个关键特征。 由于气象站和测量通常在多个建筑物之间共享，所以天气不会被建模为站点（site）的一部分。 相反，天气标签建立一个独立的顶级实体，表示气象站或天气观测的逻辑分组。
 
-All weather entities should define a tz tag. Optionally they can also define geolocation tags such as geoCountry, geoCity, and geoCoord.
+所有天气实体都应该定义一个 tz 标签。它们还可以选择定义地理位置标签，例如 geoCountry，geoCity 和 geoCoord。
 
-### 3.6.1 Weather Points
-Weather data follows the same conventions as points, but to indicate that they associated with a weather entity, and not a site entity, we use the special tag weatherPoint to indicate a weather related point.
+### 3.6.1 天气点
+天气数据遵循与点相同的约定，但为了表明它们与天气实体相关联，而不是站点实体，我们使用特殊标签 weatherPoint 来表示与天气相关的点。
 
-The following weather points are defined by the standard library:
+以下天气点由标准库定义：
 
-+ weatherCond: enumeration of conditions (clear, cloudy, raining)
-+ air temp: dry bulb temperature in °C or °F
-+ wetBulb temp: web bulb temperature in °C or °F
-+ apparent temp: preceived "feels like" temperature in °C or °F
-+ dew temp: temperature in °C or °F below which water condenses
-+ humidity: percent relative humidity
-+ barometric pressure: atmospheric pressure in millibar or inHg
-+ sunrise: historized trend of sunrise/sunsets as true/false transitions
-+ precipitation: amount of water fall in mm or inches
-+ cloudage: percentage of sky obscurred by clouds
-+ solar irradiance: amount of solar energy in W/m²
-+ wind direction: measured in degrees
-+ wind speed: flow velocity measured in km/h or mph
-+ visibility: distance measured in km or miles
++ weatherCond: 天气的枚举条件（晴, 多云, 雨）
++ air temp: 干球温度（°C或°F）
++ wetBulb temp: 湿球温度（°C或°F）
++ apparent temp: 体感温度（°C或°F）
++ dew temp: 露点温度（°C或°F）
++ humidity: 百分比相对湿度
++ barometric pressure: 大气压力（毫巴或英寸汞柱）
++ sunrise: 日出/日落的历史趋势，以 true/false 值记录
++ precipitation: 降水量（毫米或英寸）
++ cloudage: 云量
++ solar irradiance: 太阳辐射照度（W/m²）
++ wind direction: 风向，以度为单位
++ wind speed: 风速（km/h或mph）
++ visibility: 能见度（千米或英里）
 
-Weather points are associated with their weather entity using the weatherRef tag.
-
-### 3.6.2 Weather Example
-Here is an example of a weather station and its associated points:
+### 3.6.2 天气示例
+以下是气象站及其相关点的示例：
 ```
 id: @weather.washington
 dis: "Weather in Washington, DC"
@@ -220,10 +218,10 @@ kind: "Number"
 unit: "%RH"
 ```
 
-### 3.6.3 Weather vs Outside Tags
-We often model both local weather sensors and data from an official weather station. Local sensors are typically used for HVAC control sequences. But we might use official weather data for checking local sensor calibration or baseline energy normalization. In Haystack, weather station data is annotated with weatherPoint and site-local sensors with outside:
+### 3.6.3 天气标签 vs 外部标签
+我们经常模拟本地的气象传感器和官方气象站的数据。本地传感器通常用于HVAC控制序列。 但是我们可能会使用官方天气数据来检查本地传感器校准或基准能量归一化。在Haystack中，气象站数据用 weatherPoint 标注，而本地站点传感器使用 outside 标注：
 
-+ weatherPoint temp versus outside temp
-+ weatherPoint humidity versus outside humidity
++ weatherPoint temp 与 outside temp
++ weatherPoint humidity 与 outside humidity
 
 
