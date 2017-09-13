@@ -12,15 +12,15 @@ Project Haystack is an open source initiative to streamline working with data fr
 ## 2、Who Should Participate？
 System integrators and manufacturers who integrate Haystack support into their projects and products are positioned for the future of value added services.
 
-原译：那些将Haystack集成到项目和产品中的集成商与制造商，___将被定位在___未来的增值服务。
+原译：那些将Haystack集成到项目和产品中的集成商与制造商，**将被定位在**未来的增值服务。
 
-校对：那些将Haystack集成到项目和产品中的集成商与制造商，___将定位于___未来的增值服务。
+校对：那些将Haystack集成到项目和产品中的集成商与制造商，**将定位于**未来的增值服务。
 
 
 ## 3、Open Source
 Anyone is free to participate as long as contributed IP is licensed under the AFL. This ensures that Haystack IP is open and freely available for any commercial use.
 
-原译：___任何自由参与者的参与时长依据贡献程度决定，其IP具备AFL授权___。
+原译：**任何自由参与者的参与时长依据贡献程度决定，其IP具备AFL授权**。
 
 校对：只要其IP获得AFL许可，任何人都可以自由参与。
 
@@ -31,9 +31,9 @@ Anyone is free to participate as long as contributed IP is licensed under the AF
 ## 1、About Project Haystack
 Project Haystack is a 501C tax-exempt non-stock corporation formed May 28, 2014 under the provisions of Chapter 10 of Title 13.1 of the Code of Virginia of 1950. The corporation functions as a trade association with the purpose of fostering the common association and interests of software and technology companies focused on developing semantic modeling solutions for data related to smart devices including: building equipment systems, automation and control devices, sensors and sensing devices, promotion and education with respect to the semantic data modeling industry for building automation systems, and to engage in educational activities directed towards the improvement of business conditions of the semantic data modeling industry for smart device data, all on a not-for-profit basis, as provided in Section 501(c)(6) of the Internal Revenue Code of 1986, as amended (the “Code”).
 
-原译：Project Haystack是一个成立于2014 年5月28日的501 C 免税非股份制公司，其遵循1950年的《弗吉尼亚法典》___第10章标题 13.1 的的___规定。作为一个贸易协会，___其目的是促进共同协会与软件科技公司的利益___,其专注于开发与智能设备包括相关的数据的语义建模解决方案，包括：楼宇设备系统、 自动化和控制设备、 传感器和___遥感___设备，关于楼宇自动化系统___行业___的语义数据建模的推广、 教育，及针对智能设备数据的语义数据建模所从事教育活动，___依据1986年国内税收法典501(c)(6)节代码，经修正后 （"Code"）___，所有这些都建立在不以营利为目的基础上。
+原译：Project Haystack是一个成立于2014 年5月28日的501 C 免税非股份制公司，其遵循1950年的《弗吉尼亚法典》**第10章标题 13.1 的的**规定。作为一个贸易协会，**其目的是促进共同协会与软件科技公司的利益**,其专注于开发与智能设备包括相关的数据的语义建模解决方案，包括：楼宇设备系统、 自动化和控制设备、 传感器和**遥感**设备，关于楼宇自动化系统**行业**的语义数据建模的推广、 教育，及针对智能设备数据的语义数据建模所从事教育活动，**依据1986年国内税收法典501(c)(6)节代码，经修正后 （"Code"）**，所有这些都建立在不以营利为目的基础上。
 
-校对：Project Haystack是一个成立于于2014年5月28日的501C免税非股份制公司，其遵循1950年《弗吉尼亚州法典》___第13.1节第10章的规定___。作为贸易协会，___其目的是促进软件科技公司的共同关系和利益___，这些公司致力于开发与智能设备有关的数据的语义建模解决方案，包括：楼宇设备系统，自动化和控制设备，传感器和传感设备，关于楼宇自动化系统的语义数据建模产业的推广和教育，___并根据《国内税收法典》（以下简称“法典”）1986年修订版第501(c)(6)条的规定___，从事旨在改善语义数据建模产业智能设备数据业务条件的教育活动，所有这些都建立在不以营利为目的基础上。
+校对：Project Haystack是一个成立于于2014年5月28日的501C免税非股份制公司，其遵循1950年《弗吉尼亚州法典》**第13.1节第10章的规定**。作为贸易协会，**其目的是促进软件科技公司的共同关系和利益**，这些公司致力于开发与智能设备有关的数据的语义建模解决方案，包括：楼宇设备系统，自动化和控制设备，传感器和传感设备，关于楼宇自动化系统的语义数据建模产业的推广和教育，**并根据《国内税收法典》（以下简称“法典”）1986年修订版第501(c)(6)条的规定**，从事旨在改善语义数据建模产业智能设备数据业务条件的教育活动，所有这些都建立在不以营利为目的基础上。
 
 解析：
 + 章节条款描述：《法典》第13.1节第10章
@@ -61,9 +61,9 @@ The management and operations of the Corporation are governed by a Board of Dire
 ### 1.3 Rest Http API
 To facilitate interoperability between Haystack software systems, a simple REST API is definde to exchange data over HTTP:
 
-原译：为了促进Haystack软件系统之间的互操作性，___一个简单的REST API就是通过HTTP交换数据:___
+原译：为了促进Haystack软件系统之间的互操作性，**一个简单的REST API就是通过HTTP交换数据:**
 
-校对：为了促进Haystack软件系统之间的互操作性，___定义了一个通过HTTP交换数据的简单的REST API：___
+校对：为了促进Haystack软件系统之间的互操作性，**定义了一个通过HTTP交换数据的简单的REST API：**
 
 ### 本章其他翻译建议：
 + to get start 译作“开始之前”
@@ -75,9 +75,9 @@ To facilitate interoperability between Haystack software systems, a simple REST 
 ### 2.1 元模型
 In oBIX the metamodel is oBIX contracts. In RDF the metamodel is subject-predicate-object triples.
 
-原译：在oBIX中，元模型是___oBIX合约___。在RDF中，元模型是___主体谓词___ - 对象三元组。
+原译：在oBIX中，元模型是**oBIX合约**。在RDF中，元模型是**主体谓词** - 对象三元组。
 
-校对：在oBIX中，元模型是___oBIX协议___。在RDF中，元模型是___主语-谓语-宾语___ - 对象三元组。
+校对：在oBIX中，元模型是**oBIX协议**。在RDF中，元模型是**主语-谓语-宾语** - 对象三元组。
 
 
 However, the rigid structures imposed by OO class hierarchies or relational database schemes is ill suited to the domain of building automation systems where each project is essentially unique.
@@ -102,9 +102,9 @@ If a specific definition of an entity is stored in a database, then we will use 
 #### 2.3.1 标签名称
 By convention use camel case
 
-原译：按惯例使用___骆驼写法___
+原译：按惯例使用**骆驼写法**
 
-校对：按惯例使用___驼峰命名法___
+校对：按惯例使用**驼峰命名法**
 
 
 Restricting tag names, ensures they may be easily used as identifiers in programming languages and databases.
@@ -125,7 +125,7 @@ A kind is one of the permitted value types of a tag. The following are the atomi
 
 singleton value which represents not available for missing data
 
-原译：___表示不可用于丢失数据的单例值___
+原译：**表示不可用于丢失数据的单例值**
 
 校对：单例值，表示缺失数据，且无法获取
 
@@ -141,7 +141,7 @@ integer or floating point number annotated with an optional unit of measurement.
 
 Bin: a binary blob with a MIME type formatted as Bin(text/plain)
 
-原译：___具有格式为MIME类型的二进制 Bin(text/plain)___
+原译：**具有格式为MIME类型的二进制 Bin(text/plain)**
 
 校对：格式为Bin(text/plain)的MIME类型的二进制大对象。
 
@@ -158,36 +158,36 @@ an ISO 8601 time as hour, minute, seconds: 09:51:27.354.
 
 There are three collection tag kinds:
 
-原译：有三种___收藏___标签种类：
+原译：有三种**收藏**标签种类：
 
-校对：有三种___集合___标签类型：
+校对：有三种**集合**标签类型：
 
 解析：计算机术语
 
 ### 2.4 Id
 The id tag is used model the unique identifier of an entity in system using a Ref value type. The scope of an entity is undefined, but must be unique with a given system or project. This identifier may be used by other entities to cross-reference using tags such as siteRef, ahuRef, etc.
 
-原译：___该 id 标记用于在模型系统中使用的实体的唯一标识 Ref 值的类型。___实体的范围未定义，但必须在给定的系统或项目中是唯一的。这个标识符可以由其它实体来___交叉参考___使用标签如 siteRef， ahuRef等
+原译：**该 id 标记用于在模型系统中使用的实体的唯一标识 Ref 值的类型。**实体的范围未定义，但必须在给定的系统或项目中是唯一的。这个标识符可以由其它实体来**交叉参考**使用标签如 siteRef， ahuRef等
 
-校对：___id标签使用Ref值类型对系统中的实体的唯一标识进行建模。___虽然实体的范围未定义，但在给定的系统或项目中必须是唯一的。该标识符可被其他实体用来___交叉引用___诸如 siteRef，ahuRef等正在使用的标签。
+校对：**id标签使用Ref值类型对系统中的实体的唯一标识进行建模。**虽然实体的范围未定义，但在给定的系统或项目中必须是唯一的。该标识符可被其他实体用来**交叉引用**诸如 siteRef，ahuRef等正在使用的标签。
 
 解析：原译有误
 
 
 The dis tag is used with all entities as the standard way to define the display text used to describe the entity. Dis values should be short (less than 30 or 40 characters), but fully descriptive of the entity.
 
-原译：___这个 dis 标签与所有实体一起用作定义用于描述实体的显示文本的标准方式。___Dis值应该较短（小于30或40个字符），但完全描述实体。
+原译：**这个 dis 标签与所有实体一起用作定义用于描述实体的显示文本的标准方式。**Dis值应该较短（小于30或40个字符），但完全描述实体。
 
-校对：___dis 标签被用于所有实体，它是定义描述实体的显示文本的标准方式。___Dis标签的值应当简短（小于30或40个字符），但又能充分描述实体。
+校对：**dis 标签被用于所有实体，它是定义描述实体的显示文本的标准方式。**Dis标签的值应当简短（小于30或40个字符），但又能充分描述实体。
 
 解析：原译不自然。
 
 
 In the example above we have an entity with seven tags: id, site, dis, area, geoAddr, tz, and weatherRef. By convention when writing examples we will list each tag on their own line or separated by a comma. The site tag has no explicit value, so it is assumed to be marker tag. The dis, geoAddr, and tz tags have string values indicated by double quotes. The area tag has a number value indicated by a scalar with unit of square feet. The weatherRef tag is a reference to another entity, which we indicate using the "@" character.
 
-原译：在上面的例子中，___我们有七个标签实体：___ id, site, dis, area, geoAddr, tz, 和 weatherRef。按惯例编写示例时，我们___将在自己的行上列出每个标签___或用逗号分隔。这个 site 标签没有明确的意义，因此它被认为是标志标签。这个 dis， geoAddr 和 tz 标签 有双引号表示的字符串值。这个 area 标签具有由___一个标量与平方英尺单元所指示___的数字值。 weatherRef 标签是指向另一个实体，我们使用“@”字符的作为开头。
+原译：在上面的例子中，**我们有七个标签实体：** id, site, dis, area, geoAddr, tz, 和 weatherRef。按惯例编写示例时，我们**将在自己的行上列出每个标签**或用逗号分隔。这个 site 标签没有明确的意义，因此它被认为是标志标签。这个 dis， geoAddr 和 tz 标签 有双引号表示的字符串值。这个 area 标签具有由**一个标量与平方英尺单元所指示**的数字值。 weatherRef 标签是指向另一个实体，我们使用“@”字符的作为开头。
 
-校对：在上面的例子中，___我们有一个包含七个标签的实体：___id，site，dis，area，geoAddr，tz和weatherRef。 按惯例编写示例时，我们___将分行列出每个标签___或用逗号分隔。site标签没有明确的值，因此它被看做标识标签。 dis，geoAddr和tz标签具有双引号表示的字符串值。区域标签___具有以平方英尺为单位的标量表示___的数字值。 weatherRef标签是对另一个实体的引用，我们使用“@”字符表示。
+校对：在上面的例子中，**我们有一个包含七个标签的实体：**id，site，dis，area，geoAddr，tz和weatherRef。 按惯例编写示例时，我们**将分行列出每个标签**或用逗号分隔。site标签没有明确的值，因此它被看做标识标签。 dis，geoAddr和tz标签具有双引号表示的字符串值。区域标签**具有以平方英尺为单位的标量表示**的数字值。 weatherRef标签是对另一个实体的引用，我们使用“@”字符表示。
 
 解析：原译不自然。
 
@@ -206,16 +206,16 @@ single building with its own street address
 ### 3.3 站点
 A site entity models a single facility using the site tag. A good rule of thumb is to model any building with its own street address as its own site. For example a campus is better modeled with each building as a site, versus treating the entire campus as one site.
 
-原译：一个*site*的实体使用 site 标签建立一个___单一的设备___。好的经验法则是建模楼宇的时，以其街道地址作为它自己的站点。例如，___为校园建模的时候，把整个校园作为一个站点好过把每一个建筑作为一个站点。___
+原译：一个*site*的实体使用 site 标签建立一个**单一的设备**。好的经验法则是建模楼宇的时，以其街道地址作为它自己的站点。例如，**为校园建模的时候，把整个校园作为一个站点好过把每一个建筑作为一个站点。**
 
-校对：站点实体使用 site 标签对___单个设施___进行建模。在对任何楼宇进行建模时，一个很好的经验法则是将其街道地址作为自己的站点。 例如，___在对校园进行建模时，更好的方式是把每个建筑物作为一个站点，而不是把整个校园作为一个站点。___
+校对：站点实体使用 site 标签对**单个设施**进行建模。在对任何楼宇进行建模时，一个很好的经验法则是将其街道地址作为自己的站点。 例如，**在对校园进行建模时，更好的方式是把每个建筑物作为一个站点，而不是把整个校园作为一个站点。**
 
 解析：原译开头和最后一句翻译错误。
 
 
 square footage or square meters of the facility. This enables site normalization by area.
 
-原译：___平方英尺或平方米的设施。这使得按地区进行现场规范化。___
+原译：**平方英尺或平方米的设施。这使得按地区进行现场规范化。**
 
 校对：设施的平方英尺或平方米。这使得站点通过面积进行规范。
 
@@ -251,9 +251,9 @@ Here is an example of a site entity fully tricked out with geolocation tags:
 ### 3.5 点
 model analog ponts such as temperature or pressure. These points should also include the unit to indicate the point's unit of measurement.
 
-原译：模拟___模拟字体，如温度或压力___。这些点也应包括 unit 指示点的测量单位。
+原译：模拟**模拟字体，如温度或压力**。这些点也应包括 unit 指示点的测量单位。
 
-校对：模拟___诸如温度或压力等模拟量的点___。这些点也应该包含 unit 用以指示该点的测量单位。
+校对：模拟**诸如温度或压力等模拟量的点**。这些点也应该包含 unit 用以指示该点的测量单位。
 
 解析：数字量和模拟量
 
@@ -267,9 +267,9 @@ When these tags are applied to a cmd or sp, they model the range of valid user i
 
 The term cur indicates synchronization of a point's current real-time value. By real-time we typically mean freshness within the order of of a few seconds.
 
-原译：术语“cur”表示一个点的当前实时值的同步。___实时通常意味着在几秒钟之内的新鲜度。___
+原译：术语“cur”表示一个点的当前实时值的同步。**实时通常意味着在几秒钟之内的新鲜度。**
 
-校对：术语“cur”表示点的当前实时值的同步。___实时通常意味着每过几秒钟就会更新一次。___
+校对：术语“cur”表示点的当前实时值的同步。**实时通常意味着每过几秒钟就会更新一次。**
 
 
 current value of the point as Number, Bool, or Str
@@ -281,30 +281,30 @@ current value of the point as Number, Bool, or Str
 
 Writable points are points which model an output or setpoint and may be commanded. Writable points are modeled on the BACnet 16-level priority array with a relinquish default which effectively acts as level 17. Writable points which may be commanded by the pointWrite operation should be tagged with the writable tag.
 
-原译：可写点是对输出或设定值进行建模并___可能被命令的点___。可写点在BACnet 16级优先级数组上建模，___具有默认值___，可有效地作为17级.可以被[pointWrite]‘Ops#pointWrite’命令操作的可写点应该用标签'writable'标记。
+原译：可写点是对输出或设定值进行建模并**可能被命令的点**。可写点在BACnet 16级优先级数组上建模，**具有默认值**，可有效地作为17级.可以被[pointWrite]‘Ops#pointWrite’命令操作的可写点应该用标签'writable'标记。
 
-校对：可写点是对输出或设定值进行建模并___可被指令控制的点___。可写点在BACnet 16级优先级数组上建模，作为有效的第17级，___而非默认值___。可写点可以由 pointWrite 操作发送指令，并使用 writable 标签进行标记。
+校对：可写点是对输出或设定值进行建模并**可被指令控制的点**。可写点在BACnet 16级优先级数组上建模，作为有效的第17级，**而非默认值**。可写点可以由 pointWrite 操作发送指令，并使用 writable 标签进行标记。
 
 
 highest priority reserved for emergency overrides
 
-原译：最高优先级保留用于紧急___重读___
+原译：最高优先级保留用于紧急**重读**
 
-校对：最高优先级，被保留用于紧急情况下的___覆写___
+校对：最高优先级，被保留用于紧急情况下的**覆写**
 
 
 The priority array provides for contention resolution when many different control applications may be vying for control of a given point. Low level applications like scheduling typically control levels 14, 15, or 16. Then users can override at level 8. But a higher levels like 2 to 7 can be used to trump a user override (for example a demand response energy routine that requires higher priority).
 
-原译：当许多不同的控制应用程序争夺给定点的控制时，优先级数组提供了争用解决方案。诸如调度这样的低级应用程序通常控制级别为14,15或16.那么用户就可以在级别8上进行覆盖。但是使用更高级别（如2到7）___好过用户覆盖（例如一个响应常规能源的需求，需要更高的优先级）。___
+原译：当许多不同的控制应用程序争夺给定点的控制时，优先级数组提供了争用解决方案。诸如调度这样的低级应用程序通常控制级别为14,15或16.那么用户就可以在级别8上进行覆盖。但是使用更高级别（如2到7）**好过用户覆盖（例如一个响应常规能源的需求，需要更高的优先级）。**
 
-校对：当许多不同的控制应用程序可能争夺给定点的控制权时，优先级数组提供了争用解决方案。诸如时间表这样的的低级应用程序通常控制级别为14,15或16。那么用户可以在级别8上覆写。但是可以使用更高级别（如2到7）___来胜过用户覆写（例如一个需要更高级别需求响应的能源事务）。___
+校对：当许多不同的控制应用程序可能争夺给定点的控制权时，优先级数组提供了争用解决方案。诸如时间表这样的的低级应用程序通常控制级别为14,15或16。那么用户可以在级别8上覆写。但是可以使用更高级别（如2到7）**来胜过用户覆写（例如一个需要更高级别需求响应的能源事务）。**
 
 
 The actual value to write is resolved by starting at level 1 and working down to relinquish default to find the first non-null value. It is possible for all levels to be null, in which case the overall write output is null (which in turn may be auto/null to another system). Anytime a null value is written to a priority level, we say that level has been set to auto or released (this allows the next highest level to take command of the output).
 
-原译：要写入的实际值通过从第1级开始解析，___并处理默认值___来找到第一个非空值。所有级别都可以为空，在这种情况下，总写入输出为空（这又可能是另一个系统的自动/空值）。任何时候，一个空值被写入一个优先级，我们说这个级别已被设置为自动或释放（这允许下一个最高级别来___命令输出值___）。
+原译：要写入的实际值通过从第1级开始解析，**并处理默认值**来找到第一个非空值。所有级别都可以为空，在这种情况下，总写入输出为空（这又可能是另一个系统的自动/空值）。任何时候，一个空值被写入一个优先级，我们说这个级别已被设置为自动或释放（这允许下一个最高级别来**命令输出值**）。
 
-校对：要写入的实际值通过从第1级开始解析，___并且逐级下调至默认值___以找到第一个非空值。在所有级别都为空的情况下，总写入输出为空（这又可能是另一个系统的自动/空值）。无论何时将空值写入优先级，我们认为该级别已设置为自动或释放（这允许下一个最高级别___对输出进行控制___）。
+校对：要写入的实际值通过从第1级开始解析，**并且逐级下调至默认值**以找到第一个非空值。在所有级别都为空的情况下，总写入输出为空（这又可能是另一个系统的自动/空值）。无论何时将空值写入优先级，我们认为该级别已设置为自动或释放（这允许下一个最高级别**对输出进行控制**）。
 
 
 optionally defined to indicate a point is collected an ongoing accumulated value
@@ -338,16 +338,16 @@ historized trend of sunrise/sunsets as true/false transitions
 
 Weather points are associated with their weather entity using the weatherRef tag.
 
-原译：天气点___与使用 weatherRef 标签的天气实体___相关联。
+原译：天气点**与使用 weatherRef 标签的天气实体**相关联。
 
-校对：天气点___使用 weatherRef 标签与其天气实体___相关联。
+校对：天气点**使用 weatherRef 标签与其天气实体**相关联。
 
 
 We often model both local weather sensors and data from an official weather station. Local sensors are typically used for HVAC control sequences. But we might use official weather data for checking local sensor calibration or baseline energy normalization. In Haystack, weather station data is annotated with weatherPoint and site-local sensors with outside:
 
-原译：我们经常___模拟来自官方气象站的当地天气传感器和数据。___本地传感器通常用于HVAC控制序列。但是我们可能会使用官方天气数据来检查本地传感器校准或基准能量归一化。在Haystack，气象站数据用'weatherPoint'标注和现场本地传感器用'outside'标注：
+原译：我们经常**模拟来自官方气象站的当地天气传感器和数据。**本地传感器通常用于HVAC控制序列。但是我们可能会使用官方天气数据来检查本地传感器校准或基准能量归一化。在Haystack，气象站数据用'weatherPoint'标注和现场本地传感器用'outside'标注：
 
-校对：我们经常___模拟本地的气象传感器和官方气象站的数据。___本地传感器通常用于HVAC控制序列。 但是我们可能会使用官方天气数据来检查本地传感器校准或基准能量归一化。在Haystack中，气象站数据用 weatherPoint 标注，而本地站点传感器使用 outside 标注：
+校对：我们经常**模拟本地的气象传感器和官方气象站的数据。**本地传感器通常用于HVAC控制序列。 但是我们可能会使用官方天气数据来检查本地传感器校准或基准能量归一化。在Haystack中，气象站数据用 weatherPoint 标注，而本地站点传感器使用 outside 标注：
 
 解析：checking local sensor calibration or baseline energy normalization. 如何翻译待研究
 
@@ -362,23 +362,23 @@ Time-series data is the foundation for the sensor and operational data. This mak
 
 offset from UTC and daylight saving time rules
 
-原译：___从UTC和夏令时规则偏移___
+原译：**从UTC和夏令时规则偏移**
 
-校对：___UTC偏移量和夏令时规则___
+校对：**UTC偏移量和夏令时规则**
 
 
 Timezones are quite problematic for computers because they are a political abstraction versus a scientific abstraction. This means that a given region might change its timezone rules (either UTC offset of DST rules) over time. For example, in 2007 the US changed the dates for when DST starts and ends. This means that computing a date in 2000 uses different rules than 2010 (we call these historical timezones).
 
-原译：时区对于计算机来说是___相当有问题的，因为它们是政治抽象与科学抽象。___这意味着给定的区域可能随时间改变其时区规则（DST规则的UTC偏移量）。例如，2007年，美国更改了DST开始和结束的日期。这意味着在2000年的计算日期使用与2010年不同的规则（我们称之为这些历史时区）。
+原译：时区对于计算机来说是**相当有问题的，因为它们是政治抽象与科学抽象。**这意味着给定的区域可能随时间改变其时区规则（DST规则的UTC偏移量）。例如，2007年，美国更改了DST开始和结束的日期。这意味着在2000年的计算日期使用与2010年不同的规则（我们称之为这些历史时区）。
 
-校对：时区对于计算机来说是___很难处理的，因为它们是一种政治概念而不是一种科学的概念。 ___这意味着给定的区域可能会随时间改变其时区规则（DST规则的UTC偏移量）。例如，2007年，美国更改了DST开始和结束的日期。 这意味着，计算2000年的日期使用与2010年不同的规则（我们称之为历史时区）。
+校对：时区对于计算机来说是**很难处理的，因为它们是一种政治概念而不是一种科学的概念。 **这意味着给定的区域可能会随时间改变其时区规则（DST规则的UTC偏移量）。例如，2007年，美国更改了DST开始和结束的日期。 这意味着，计算2000年的日期使用与2010年不同的规则（我们称之为历史时区）。
 
 
 All timezones in Haystack are repesented using the city name of an entry in the Olsen database.
 
-原译：Haystack的所有时区都使用Olsen数据库中的一个条目的城市名进行___重新排列。___
+原译：Haystack的所有时区都使用Olsen数据库中的一个条目的城市名进行**重新排列。**
 
-校对：Haystack中的所有时区都使用Olsen数据库中的一个条目的城市名称___来表示。___
+校对：Haystack中的所有时区都使用Olsen数据库中的一个条目的城市名称**来表示。**
 
 
 
