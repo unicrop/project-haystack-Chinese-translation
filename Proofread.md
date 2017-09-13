@@ -176,9 +176,9 @@ The id tag is used model the unique identifier of an entity in system using a Re
 
 The dis tag is used with all entities as the standard way to define the display text used to describe the entity. Dis values should be short (less than 30 or 40 characters), but fully descriptive of the entity.
 
-原译：**这个 dis 标签与所有实体一起用作定义用于描述实体的显示文本的标准方式。**Dis值应该较短（小于30或40个字符），但完全描述实体。
+原译：**这个 dis 标签与所有实体一起用作定义用于描述实体的显示文本的标准方式**。Dis值应该较短（小于30或40个字符），但完全描述实体。
 
-校对：**dis 标签被用于所有实体，它是定义描述实体的显示文本的标准方式。**Dis标签的值应当简短（小于30或40个字符），但又能充分描述实体。
+校对：**dis 标签被用于所有实体，它是定义描述实体的显示文本的标准方式**。Dis标签的值应当简短（小于30或40个字符），但又能充分描述实体。
 
 解析：原译不自然。
 
@@ -345,10 +345,8 @@ Weather points are associated with their weather entity using the weatherRef tag
 
 We often model both local weather sensors and data from an official weather station. Local sensors are typically used for HVAC control sequences. But we might use official weather data for checking local sensor calibration or baseline energy normalization. In Haystack, weather station data is annotated with weatherPoint and site-local sensors with outside:
 
-原译：我们经常**模拟来自官方气象站的当地天气传感器和数据。**本地传感器通常用于HVAC控制序列。但是我们可能会使用官方天气数据来检查本地传感器校准或基准能量归一化。在Haystack，气象站数据用'weatherPoint'标注和现场本地传感器用'outside'标注：
-
-校对：我们经常**模拟本地的气象传感器和官方气象站的数据。**本地传感器通常用于HVAC控制序列。 但是我们可能会使用官方天气数据来检查本地传感器校准或基准能量归一化。在Haystack中，气象站数据用 weatherPoint 标注，而本地站点传感器使用 outside 标注：
-
+原译：我们经常**模拟来自官方气象站的当地天气传感器和数据**。本地传感器通常用于HVAC控制序列。但是我们可能会使用官方天气数据来检查本地传感器校准或基准能量归一化。在Haystack，气象站数据用'weatherPoint'标注和现场本地传感器用'outside'标注：
+校对：我们经常**模拟本地的气象传感器和官方气象站的数据**。本地传感器通常用于HVAC控制序列。 但是我们可能会使用官方天气数据来检查本地传感器校准或基准能量归一化。在Haystack中，气象站数据用 weatherPoint 标注，而本地站点传感器使用 outside 标注：
 解析：checking local sensor calibration or baseline energy normalization. 如何翻译待研究
 
 ## 4）TimeZones 时区
@@ -369,16 +367,16 @@ offset from UTC and daylight saving time rules
 
 Timezones are quite problematic for computers because they are a political abstraction versus a scientific abstraction. This means that a given region might change its timezone rules (either UTC offset of DST rules) over time. For example, in 2007 the US changed the dates for when DST starts and ends. This means that computing a date in 2000 uses different rules than 2010 (we call these historical timezones).
 
-原译：时区对于计算机来说是**相当有问题的，因为它们是政治抽象与科学抽象。**这意味着给定的区域可能随时间改变其时区规则（DST规则的UTC偏移量）。例如，2007年，美国更改了DST开始和结束的日期。这意味着在2000年的计算日期使用与2010年不同的规则（我们称之为这些历史时区）。
+原译：时区对于计算机来说是**相当有问题的，因为它们是政治抽象与科学抽象**。这意味着给定的区域可能随时间改变其时区规则（DST规则的UTC偏移量）。例如，2007年，美国更改了DST开始和结束的日期。这意味着在2000年的计算日期使用与2010年不同的规则（我们称之为这些历史时区）。
 
-校对：时区对于计算机来说是**很难处理的，因为它们是一种政治概念而不是一种科学的概念。 **这意味着给定的区域可能会随时间改变其时区规则（DST规则的UTC偏移量）。例如，2007年，美国更改了DST开始和结束的日期。 这意味着，计算2000年的日期使用与2010年不同的规则（我们称之为历史时区）。
+校对：时区对于计算机来说是**很难处理的，因为它们是一种政治概念而不是一种科学的概念**。 这意味着给定的区域可能会随时间改变其时区规则（DST规则的UTC偏移量）。例如，2007年，美国更改了DST开始和结束的日期。 这意味着，计算2000年的日期使用与2010年不同的规则（我们称之为历史时区）。
 
 
 All timezones in Haystack are repesented using the city name of an entry in the Olsen database.
 
-原译：Haystack的所有时区都使用Olsen数据库中的一个条目的城市名进行**重新排列。**
+原译：Haystack的所有时区都使用Olsen数据库中的一个条目的城市名进行**重新排列**。
 
-校对：Haystack中的所有时区都使用Olsen数据库中的一个条目的城市名称**来表示。**
+校对：Haystack中的所有时区都使用Olsen数据库中的一个条目的城市名称**来表示**。
 
 
 
