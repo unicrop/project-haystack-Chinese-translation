@@ -352,7 +352,9 @@ Weather points are associated with their weather entity using the weatherRef tag
 We often model both local weather sensors and data from an official weather station. Local sensors are typically used for HVAC control sequences. But we might use official weather data for checking local sensor calibration or baseline energy normalization. In Haystack, weather station data is annotated with weatherPoint and site-local sensors with outside:
 
 原译：我们经常**模拟来自官方气象站的当地天气传感器和数据**。本地传感器通常用于HVAC控制序列。但是我们可能会使用官方天气数据来检查本地传感器校准或基准能量归一化。在Haystack，气象站数据用'weatherPoint'标注和现场本地传感器用'outside'标注：
+
 校对：我们经常**模拟本地的气象传感器和官方气象站的数据**。本地传感器通常用于HVAC控制序列。 但是我们可能会使用官方天气数据来检查本地传感器校准或基准能量归一化。在Haystack中，气象站数据用 weatherPoint 标注，而本地站点传感器使用 outside 标注：
+
 解析：checking local sensor calibration or baseline energy normalization. 如何翻译待研究
 
 ## 4）TimeZones 时区
