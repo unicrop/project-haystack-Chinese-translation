@@ -439,15 +439,21 @@ By convention the symbol is the preferred notation. If there are multiple symbol
 percent, %（百分比）
 
 #### 面积
-square_meter, m²（平方米）
+square_meter, m²（平方米）  
+
 square_foot, ft²（平方英尺）
 
 #### 货币
-australian_dollar, AUD（澳元）
-british_pound, GBP, £（英镑）
-canadian_dollar, CAD（加拿大元）
-chinese_yuan, CNY, 元
-euro, EUR, €（欧元）
+australian_dollar, AUD（澳元）  
+
+british_pound, GBP, £（英镑）  
+
+canadian_dollar, CAD（加拿大元）  
+
+chinese_yuan, CNY, 元  
+
+euro, EUR, €（欧元）  
+
 us_dollar, USD, $（美元）
 
 #### 能源
@@ -457,31 +463,44 @@ kilowatt_hour, kWh（千瓦时）
 kilowatt, kW（千瓦）
 
 #### 压力
-kilopascal, kPa（千帕）
-pounds_per_square_inch, psi（磅/平方英寸）
-inches_of_water, inH₂O（英寸水柱）
+kilopascal, kPa（千帕）  
+
+pounds_per_square_inch, psi（磅/平方英寸）  
+
+inches_of_water, inH₂O（英寸水柱）  
+
 inches_of_mercury, inHg（英寸汞柱）
 
 #### 温度
-fahrenheit, °F（华氏度）
+fahrenheit, °F（华氏度）  
+
 celsius, °C（摄氏度）
 
 #### 温差
-fahrenheit_degrees, Δ°F（华氏度）
+fahrenheit_degrees, Δ°F（华氏度）  
+
 celsius_degrees, Δ°C（摄氏度）
 
 #### 时间
-millisecond, ms（毫秒）
-second, sec（秒）
-minute, min（分钟）
-hour, hr, h（小时）
-day（天）
-week, wk（周）
-julian_month, mo（朱利安月）
+millisecond, ms（毫秒）  
+
+second, sec（秒）  
+
+minute, min（分钟）  
+
+hour, hr, h（小时）  
+
+day（天）  
+
+week, wk（周）  
+
+julian_month, mo（朱利安月）  
+
 year, yr（年）
 
 #### 体积流量
-liters_per_second, L/s（升/秒）
+liters_per_second, L/s（升/秒）  
+
 cubic_feet_per_minute, cfm（立方英尺每分钟）
 
 
