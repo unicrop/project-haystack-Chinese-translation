@@ -387,6 +387,58 @@ All timezones in Haystack are repesented using the city name of an entry in the 
 校对：Haystack中的所有时区都使用Olsen数据库中的一个条目的城市名称**来表示**。
 
 
+## 5）Unit
+### 5.1 概述
+All number tag values can be annotated with an optional unit. In addition, it is required to annotate each numeric point with the unit tag. In both cases, the unit must be an identifier defined by the standard unit database.  
+
+原译：所有数字标签值都可以关联一个可选单位。此外，**还需要 point 使用 unit 标记注释每个数字**。在这两种情况下，单位必须是由标准单位数据库定义的标识符。  
+
+校对：所有数字标签值都可以用一个可单位进行标注。此外，**需要使用 unit 标签对每个数字点进行标注**。在这两种情况下，单位必须是由标准单位数据库定义的标识符。  
+
+### 5.2 单位系统
+As a general principle, all the data associated with a given site should exclusively use either the SI metric system or the US customary system. Mixing unit systems within one site will cause serious headaches.  
+
+原译：作为一般原则，与给定站点相关联的所有数据应仅使用SI度量系统或美国习惯系统。在一个场地内混合单元系统会引起严重的头痛。  
+
+校对：作为一般原则，与给定站点相关联的所有数据应仅使用SI（国际单位制）度量系统或美国习惯系统（美式英制单位）。在同一个站点内混合使用不同的度量系统会引发很多麻烦。  
+
+### 5.3 数据库
+but has since been expanded to allow multiple aliases to be used for each unit.  
+
+原译：但已经扩展到允许为每个**单元**使用多个别名。  
+
+校对：但是已经被扩展到允许每个**单位**使用多个别名。  
+
+
+Some units might have multiple symbols, for example "hour" has the symbols "hr" and "h". Some units like "day" have no symbols.  
+
+原译：每个测量单位都有**全名和零个或多个符号，用作该单位的别名**。例如，“square_meter” 是全名，符号别名是 “m²” 。某些单位可能有多个符号，例如 “小时” 有符号 “hr” 和 “h”。有些单位如 “day” 没有符号。  
+
+校对：每个测量单位都有**全名，以及零个或多个符号，这些符号作为该单位的别名**。例如，“square_meter”是全名，符号别名是“m²”。某些单位可能有多个符号，例如“hour”有符号“hr”和“h”。有些单位如“day”没有符号。 
+
+解析：分清“单位”和“单位符号”；引号内保持原英文单位，不用翻译为中文
+
+
+any Unicode char over 128  
+
+原译：任何Unicode字符超过128  
+
+校对：所有编号超过128的Unicode字符  
+
+
+By convention the symbol is the preferred notation. If there are multiple symbols, then the last symbol defined by the database is the preferred one.  
+
+原译：按照惯例，**符号是首选符号**。如果有多个符号，则数据库定义的最后一个符号是首选符号。
+
+校对：按照惯例，**符号是首选的单位表示方法**。如果有多个符号，则将单位数据库中定义的最后一个作为首选符号。  
+
+解析：分清“单位”和“单位符号”
+
+
+
+
+
+
 
 
 
