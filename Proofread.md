@@ -387,7 +387,7 @@ All timezones in Haystack are repesented using the city name of an entry in the 
 校对：Haystack中的所有时区都使用Olsen数据库中的一个条目的城市名称**来表示**。
 
 
-## 5）Unit
+## 5）单位
 ### 5.1 概述
 All number tag values can be annotated with an optional unit. In addition, it is required to annotate each numeric point with the unit tag. In both cases, the unit must be an identifier defined by the standard unit database.  
 
@@ -421,9 +421,9 @@ Some units might have multiple symbols, for example "hour" has the symbols "hr" 
 
 any Unicode char over 128  
 
-原译：任何Unicode字符超过128  
+原译：**任何Unicode字符超过128**  
 
-校对：所有编号超过128的Unicode字符  
+校对：**所有编号超过128的Unicode字符**  
 
 
 By convention the symbol is the preferred notation. If there are multiple symbols, then the last symbol defined by the database is the preferred one.  
@@ -434,6 +434,55 @@ By convention the symbol is the preferred notation. If there are multiple symbol
 
 解析：分清“单位”和“单位符号”
 
+### 5.4 常用单位
+#### 杂项
+percent, %（百分比）
+
+#### 面积
+square_meter, m²（平方米）
+square_foot, ft²（平方英尺）
+
+#### 货币
+australian_dollar, AUD（澳元）
+british_pound, GBP, £（英镑）
+canadian_dollar, CAD（加拿大元）
+chinese_yuan, CNY, 元
+euro, EUR, €（欧元）
+us_dollar, USD, $（美元）
+
+#### 能源
+kilowatt_hour, kWh（千瓦时）
+
+#### 功率
+kilowatt, kW（千瓦）
+
+#### 压力
+kilopascal, kPa（千帕）
+pounds_per_square_inch, psi（磅/平方英寸）
+inches_of_water, inH₂O（英寸水柱）
+inches_of_mercury, inHg（英寸汞柱）
+
+#### 温度
+fahrenheit, °F（华氏度）
+celsius, °C（摄氏度）
+
+#### 温差
+fahrenheit_degrees, Δ°F（华氏度）
+celsius_degrees, Δ°C（摄氏度）
+
+#### 时间
+millisecond, ms（毫秒）
+second, sec（秒）
+minute, min（分钟）
+hour, hr, h（小时）
+day（天）
+week, wk（周）
+julian_month, mo（朱利安月）
+year, yr（年）
+
+#### 体积流量
+liters_per_second, L/s（升/秒）
+cubic_feet_per_minute, cfm（立方英尺每分钟）
 
 
 

@@ -21,55 +21,55 @@ Project Haystack 使用的单位数据由 Fantom 开源社区管理，作为sys:
 
 按照惯例，符号是首选的单位表示方法。如果有多个符号，则将单位数据库中定义的最后一个作为首选符号。
 
-## 5.4 Common Units
-Below are some commonly used units. You can download the full unit database from Downloads or from the Fantom website.
+## 5.4 常用单位
+以下是一些常用的单位。您可以从 [下载链接]() 或从 [Fantom]() 网站下载完整的数据库。
 
-### Misc
-percent, %
+### 杂项
+percent, %（百分比）
 
-### Area
-square_meter, m²
-square_foot, ft²
+### 面积
+square_meter, m²（平方米）
+square_foot, ft²（平方英尺）
 
-### Currency
-australian_dollar, AUD
-british_pound, GBP, £
-canadian_dollar, CAD
+### 货币
+australian_dollar, AUD（澳元）
+british_pound, GBP, £（英镑）
+canadian_dollar, CAD（加拿大元）
 chinese_yuan, CNY, 元
-euro, EUR, €
-us_dollar, USD, $
+euro, EUR, €（欧元）
+us_dollar, USD, $（美元）
 
-### Energy
-kilowatt_hour, kWh
+### 能源
+kilowatt_hour, kWh（千瓦时）
 
-### Power
-kilowatt, kW
+### 功率
+kilowatt, kW（千瓦）
 
-### Pressure
-kilopascal, kPa
-pounds_per_square_inch, psi
-inches_of_water, inH₂O
-inches_of_mercury, inHg
+### 压力
+kilopascal, kPa（千帕）
+pounds_per_square_inch, psi（磅/平方英寸）
+inches_of_water, inH₂O（英寸水柱）
+inches_of_mercury, inHg（英寸汞柱）
 
-### Temperature
-fahrenheit, °F
-celsius, °C
+### 温度
+fahrenheit, °F（华氏度）
+celsius, °C（摄氏度）
 
-### Temperature differential
-fahrenheit_degrees, Δ°F
-celsius_degrees, Δ°C
+### 温差
+fahrenheit_degrees, Δ°F（华氏度）
+celsius_degrees, Δ°C（摄氏度）
 
-### Time
-millisecond, ms
-second, sec
-minute, min
-hour, hr, h
-day
-week, wk
-julian_month, mo
-year, yr
+### 时间
+millisecond, ms（毫秒）
+second, sec（秒）
+minute, min（分钟）
+hour, hr, h（小时）
+day（天）
+week, wk（周）
+julian_month, mo（朱利安月）
+year, yr（年）
 
-### Volumetric Flow
-liters_per_second, L/s
-cubic_feet_per_minute, cfm
+### 体积流量
+liters_per_second, L/s（升/秒）
+cubic_feet_per_minute, cfm（立方英尺每分钟）
 
