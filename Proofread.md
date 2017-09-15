@@ -504,6 +504,41 @@ liters_per_second, L/s（升/秒）
 cubic_feet_per_minute, cfm（立方英尺每分钟）
 
 
+## 6）网格
+### 6.1 概述
+Grids are two-dimensional tabular representations of tagged entities. We use grids as the core data model to serialize haystack tagged data over HTTP using the [Rest]() API.  
+
+原译：网格是**标记实体**的二维表格表示。我们使用网格作为核心数据模型，使用 Rest API 通过HTTP序列化haystack标记的数据。  
+
+校对：网格是**标签化实体**的二维表格形式。我们使用网格作为核心数据模型，并在 HTTP 层面使用[Rest]() API来序列化被 haystack 标记的数据。
+ 
+One or more columns of a programmatic name and metadata  
+
+原译：一个或多个编程名称和元数据列  
+
+校对：一个或多个列，列包含可程序化的名称和元数据  
+
+Zero or more Rows which are defined as scalar cells  
+
+原译：零个或多个定义为标量单元格的行
+
+校对：零个或多个行，行包含多个标量化的单元格  
+
+Metadata is just a list of tags as name value pairs as specified by the [tag model](). Grid level metadata allows us to specify tags about the entire grid.
+
+原译：元数据只是由 tag model 指定的**标签名称**列表。网格级元数据允许我们指定整个网格的标签。
+
+校对：元数据只是由[标签模型]()指定的**键值对标签**的列表。网格级元数据允许我们指定关于整个网格的标签。
+
+
+
+
+
+
+
+
+
+
 
 
 

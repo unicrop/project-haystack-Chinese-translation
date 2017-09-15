@@ -11,7 +11,7 @@ The Chinese translation of http://project-haystack.org/
   + [**结构**](zh-cn/Docs/Structure.md)(Structure)
   + [**时区**](zh-cn/Docs/TimeZones.md)(TimeZones)
   + [**单位**](zh-cn/Docs/Units.md)(Units)
-  + 二维表(Grids)
+  + [**网格**](zh-cn/Docs/Grids.md)(Grids)
   + 过滤(Filters)
   + Zinc
   + [**Json**](zh-cn/Docs/Json.md)
