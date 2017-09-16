@@ -511,7 +511,8 @@ Grids are two-dimensional tabular representations of tagged entities. We use gri
 原译：网格是**标记实体**的二维表格表示。我们使用网格作为核心数据模型，使用 Rest API 通过HTTP序列化haystack标记的数据。  
 
 校对：网格是**标签化实体**的二维表格形式。我们使用网格作为核心数据模型，并在 HTTP 层面使用[Rest]() API来序列化被 haystack 标记的数据。
- 
+
+### 6.2 结构 
 One or more columns of a programmatic name and metadata  
 
 原译：一个或多个编程名称和元数据列  
@@ -536,6 +537,7 @@ Columns are computed by the union of all unique tag names in a list of entities.
 
 校对：列通过实体列表中所有唯一标签名的并集计算**得出**。每列由编程名称组成，该名称必须是有效的[标签名称]()。列也可以使用标签指定元数据。**[dis]() 列标签可以用于为列提供人性化的显示名称（因为编程名称可能是驼峰式命名方式）**。
 
+### 6.3 范例
 Note the columns are union of all tags shared by the entities. Because not every entity shares the same columns, we have sparse or null cells. We could further add grid level or column level meta.
 
 原译：请注意，列是**实体共享**的所有标签的并集。因为并不是每个实体共享相同的列，我们有空或者null的单元格。我们可以进一步添加网格级或列级元。
