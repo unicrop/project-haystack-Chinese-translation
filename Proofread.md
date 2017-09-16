@@ -530,6 +530,20 @@ Metadata is just a list of tags as name value pairs as specified by the [tag mod
 
 校对：元数据只是由[标签模型]()指定的**键值对标签**的列表。网格级元数据允许我们指定关于整个网格的标签。
 
+Columns are computed by the union of all unique tag names in a list of entities. Each column is composed of a programmatic name which must be a valid [tag name](). Columns may also specify metadata using tags. The [dis]() column tag may be used to provide a human friendly display name for the column (since the programmatic name will likely be camel case).
+
+原译：列通过实体列表中所有唯一标签名称的并集计算。每列由编程名称组成，该名称必须是有效的 tag name。列也可以使用标签指定元数据。**`dis` 列标签可以被用来提供该列的人类友好的显示名称（因为编程名称将可能用驼峰方式表示）**。
+
+校对：列通过实体列表中所有唯一标签名的并集计算**得出**。每列由编程名称组成，该名称必须是有效的[标签名称]()。列也可以使用标签指定元数据。**[dis]() 列标签可以用于为列提供人性化的显示名称（因为编程名称可能是驼峰式命名方式）**。
+
+Note the columns are union of all tags shared by the entities. Because not every entity shares the same columns, we have sparse or null cells. We could further add grid level or column level meta.
+
+原译：请注意，列是**实体共享**的所有标签的并集。因为并不是每个实体共享相同的列，我们有空或者null的单元格。我们可以进一步添加网格级或列级元。
+
+校对：请注意：列是**由实体贡献**的所有标签的并集。因为并不是每个实体共享相同的列，所以我们有空或 null 的单元格。我们可以进一步添加网格级或列级元数据。
+
+解析：“实体共享”表示每个实体都有，原文并非此含义。
+
 
 
 
