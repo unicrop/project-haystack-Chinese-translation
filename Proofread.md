@@ -547,6 +547,31 @@ Note the columns are union of all tags shared by the entities. Because not every
 解析：“实体共享”表示每个实体都有，原文并非此含义。
 
 
+## 7）过滤器
+### 7.1 概述
+Filters are used by the Rest [read op]() to perform ad hoc queries against a server.
+
+原译：读操作使用过滤器来对服务器执行临时查询。
+
+校对：Rest[读操作]()使用过滤器来对服务器执行临时查询。
+
+
+The scalars to compare against are encoded using [Zinc]() encoding (with couple exceptions noted below).
+
+原译：要进行比较的标量是使用 Zinc 编码进行编码的（以下列出了几个例外）。
+
+校对：要比较的标量是使用 [Zinc]() 格式进行编码的（除了以下几个例外）
+
+
+You can combine filters using and, or, or not:
+
+原译：可以使用组合过滤and，or或not：
+
+校对：你可以使用 and，or 或 not进行组合过滤：
+
+
+
+
 
 
 
