@@ -12,8 +12,8 @@ The Chinese translation of http://project-haystack.org/
   + [**时区**](zh-cn/Docs/TimeZones.md)(TimeZones)
   + [**单位**](zh-cn/Docs/Units.md)(Units)
   + [**网格**](zh-cn/Docs/Grids.md)(Grids)
-  + 过滤(Filters)
-  + Zinc
+  + [**过滤器**](zh-cn/Docs/Filters.md)(Filters)
+  + [**Zinc**](zh-cn/Docs/Zinc.md)
   + [**Json**](zh-cn/Docs/Json.md)
   + Trio
   + Csv
