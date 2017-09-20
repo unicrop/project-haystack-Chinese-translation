@@ -39,4 +39,5 @@ The Chinese translation of http://project-haystack.org/
 + 标签
 + 下载
 
+[**合作翻译校对记录**](Proofread.md)
 
