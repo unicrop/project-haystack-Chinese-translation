@@ -26,20 +26,20 @@ equip and hvac            // 包含 equip 和 hvac 标签
 equip and not ahu         // 包含 equip 标签, 但没有 ahu 标签
 ```
 
-You use the -> to dereference a tag which has a Ref value. For example if your equip rec has a siteRef tag that references the site, you can query for equip in a given city such as:
+您可以使用 -> 来引用具有Ref值的标签。例如，如果您的 equip 记录有一个引用到站点的 siteRef 标签，则可以查询给定城市中的设备，例如：
 ```
 equip and siteRef->geoCity == "Chicago"
 ```
 
-The way to read the above expression is match an entity if:
+读取上述表达式的方式是匹配一个实体，如果：
 
-+ it has equip tag
-+ and it has a siteRef tag which is a Ref
-+ and what the siteRef tag points to has the geoCity tag
-+ and that the site's geoCity tag is equal to "Chicago"
++ 它有一个 equip 标签
++ 并且它有一个 siteRef 标签，该标签是一个 Ref
++ 并且 siteRef 标签所指的站点含有 geoCity 标签
++ 并且该站点的 geoCity 标签等于 "Chicago"
 
-## 7.3 Grammar
-The formal grammar of the filter langauge:
+## 7.3 语法
+过滤器语言的正式语法：
 ```
 <filter>     :=  <condOr>
 <condOr>     :=  <condAnd> ("or" <condAnd>)*
@@ -63,4 +63,5 @@ The formal grammar of the filter langauge:
 <time>       := same as Zinc
 ```
 
-See [Zinc grammar]() for productions reused from Zinc. Note that Marker, Bin, and DateTime scalars are not supported. Bools are encoded as "true" or "false" (Zinc encodes as "T" or "F").
+对于那些复用 Zinc 的软件产品，可以参见[Zinc语法]()。请注意，它不支持Marker，Bin和DateTime标量。Bools被编码为“true”或“false”（Zinc将其编码为“T”或“F”）。
+

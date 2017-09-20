@@ -555,7 +555,7 @@ Filters are used by the Rest [read op]() to perform ad hoc queries against a ser
 
 校对：Rest[读操作]()使用过滤器来对服务器执行临时查询。
 
-
+### 7.2 用法
 The scalars to compare against are encoded using [Zinc]() encoding (with couple exceptions noted below).
 
 原译：要进行比较的标量是使用 Zinc 编码进行编码的（以下列出了几个例外）。
@@ -570,6 +570,40 @@ You can combine filters using and, or, or not:
 校对：你可以使用 and，or 或 not进行组合过滤：
 
 
+For example if your equip rec has a siteRef tag that references the site, you can query for equip in a given city
+
+原译：如果你的 equip 记录有一个 siteRef 引用该网站的标签，您可以查询给定城市的设备
+
+校对：如果您的 equip 记录有一个引用到站点的 siteRef 标签，则可以查询给定城市中的设备
+
+The way to read the above expression is match an entity if:
+
++ it has equip tag
++ and it has a siteRef tag which is a Ref
++ and what the siteRef tag points to has the geoCity tag
++ and that the site's geoCity tag is equal to "Chicago"
+
+原译：读取上述表达式的方式与这样一个实体相匹配：
+
++ 它有一个设备标签
++ 它有一个siteRef标签，它是一个Ref
++ 以及siteRef标记指向的是geoCity标记
++ 并且该网站的地理城市标签等于"芝加哥"
+
+校对：读取上述表达式的方式是匹配一个实体，如果：
+
++ 它有一个 equip 标签
++ 并且它有一个 siteRef 标签，该标签是一个 Ref
++ 并且 siteRef 标签所指的站点含有 geoCity 标签
++ 并且该站点的 geoCity 标签等于 "Chicago"
+
+
+### 7.3 语法
+See [Zinc grammar]() for productions reused from Zinc. Note that Marker, Bin, and DateTime scalars are not supported. Bools are encoded as "true" or "false" (Zinc encodes as "T" or "F").
+
+原译：参见 Zinc grammar，**用于从Zinc中重复使用的结果**。请注意，不支持Marker，Bin和DateTime标量。Bools编码为"true"或"false"（Zinc 编码为“T”或“F”）。
+
+校对：**对于那些复用 Zinc 的软件产品**，可以参见[Zinc语法]()。请注意，它不支持Marker，Bin和DateTime标量。Bools被编码为“true”或“false”（Zinc将其编码为“T”或“F”）。
 
 
 
