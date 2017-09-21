@@ -1,0 +1,197 @@
+# 8 Zinc
+## 8.1 概述
+Zinc 表示“Zinc不是CSV”。Zinc是一种用于序列化 Haystack 网格的纯文本语法，它使用一种增强的CSV格式。与[CSV]()不同的是，Zinc支持有类型的标量值（如Bool，Int，Float，Str，Date等）以及网格和列级别的任意元数据。 它也与JSON不同，Zinc对表格数据的压缩率要高得多。
+
+## 8.2 Literals
+在Zinc的基本语法中，为每种类型都使用了自定义的字面量语法：
+```
+Null: N
+Marker: M
+Remove: R
+NA: NA
+Bool: T or F (for true, false)
+Number: 1, -34, 10_000, 5.4e-45, 9.23kg, 74.2°F, 4min, INF, -INF, NaN
+Str: "hello" "foo\nbar\" (uses all standard escape chars as C like languages)
+Uri: `http://project-haystack.com/`
+Ref: @17eb0f3a-ad607713
+Date: 2010-03-13 (YYYY-MM-DD)
+Time: 08:12:05 (hh:mm:ss.FFF)
+DateTime: 2010-03-11T23:55:00-05:00 New_York or 2009-11-09T15:39:00Z
+Coord: C(37.55,-77.45)
+XStr: Type("value")
+List: [1, 2, 3]
+Dict: {dis:"Building" site area:35000ft²}
+Grid: <<ver:"3.0" ... >>
+```
+
+## 8.3 语法
+每个网格都有一行元数据应用于整个网格，后跟一行‘列’的定义，然后是零行或多行的数据‘行’。每行由“\n”换行符分隔。
+
+元数据行必须始终以 ver 标签开头，值为“3.0”。我们来看一个简单的例子：
+```
+ver:"3.0"
+firstName,bday
+"Jack",1973-07-23
+"Jill",1975-11-15
+```
+
+注意，第一行定义了仅仅是版本标签的网格元数据。第二行定义了名为firstName和bday的两列。 有两个数据行，每个数据行包含firstName的Str值和bday的Date值。
+
+元数据可以在网格本身或每列上指定为一组名称/值标签。标签被指定为“name:val”，或者如果省略值，那么它就是一个标记标签。标签由空格分隔。 下面是一个例子：
+
+```
+ver:"3.0" database:"test" dis:"Site Energy Summary"
+siteName dis:"Sites", val dis:"Value" unit:"kW"
+"Site 1", 356.214kW
+"Site 2", 463.028kW
+```
+通常会有稀疏表，其中行的某些给定列是空值。可以使用字面量 N 或者完全省略来表示。例如下面这两行在语义上是相同的：
+```
+"a",N,2,N,N,"z"
+"a",,2,,,"z"
+```
+
+If there is only one column, then a null row must be represented with the N character.
+
+Nested lists, dicts, or grids may be used for any meta data value or cell:
+``
+ver:"3.0"
+type,val
+"list",[1,2,3]
+"dict",{dis:"Dict!" foo}
+"grid",<<
+  ver:"2.0"
+  a,b
+  1,2
+  3,4
+  >>
+"scalar","simple string"
+```
+
+## 8.4 Grammar
+The formal BNF grammar for Zinc:
+```
+<grid>        :=  <gridMeta> <cols> [<row>]*
+<gridMeta>    :=  <ver> <tags> <nl>
+<ver>         :=  "ver:" <str>
+<tags>        :=  [<tag>]*   // separated by one space (0x20)
+<tag>         :=  <tagMarker> | <tagPair>
+<tagMarker>   :=  <id>  // val is assumed to be Marker
+<tagPair>     :=  <id> ":" <val>
+<cols>        :=  <col> ["," <col>]* <nl>
+<col>         :=  <id> <tags>
+<row>         :=  <cell> ["," <cell>]* <nl>
+<cell>        :=  <val>  // empty cell is same as null
+<val>         :=  <scalar> | <list> | <dict> | <grid>
+<list>        :=  "[" (<val> ",")* "]"  // trailing comma allowed/optional
+<dict>        :=  "{" <tags> "}"
+<grid>        :=  "<<" <grid> ">>"
+```
+
+Zinc tokens:
+```
+<id>          :=  <alphaLo> (<alphaLo> | <alphaHi> | <digit> | '_')*
+
+<scalar>      :=  <null> | <marker> | <remove> | <na> | <bool> | <ref> | <str> |
+                  <uri> | <number> | <date> | <time> | <dateTime> | <coord> | <xstr>
+
+<null>        := "N"
+<marker>      := "M"
+<remove>      := "R"
+<na>          := "NA"
+<bool>        := "T" | "F"
+
+<ref>         := "@" <refChar>* [ " " <str> ]
+<refChar>     := <alpha> | <digit> | "_" | ":" | "-" | "." | "~"
+
+<str>         := """ <strChar>* """
+<uri>         := "`" <uriChar>* "`"
+<strChar>     := <unicodeChar> | <strEscChar>
+<uriChar>     := <unicodeChar> | <uriEscChar>
+<unicodeChar> := any 16-bit Unicode char >= 0x20 (except str/uri quote)
+<strEscChar>  := "\b" | "\f" | "\n" | "\r" | "\r" | "\t" | "\"" | "\\" | "\$" | <uEscChar>
+<uriEscChar>  := "\:" | "\/" | "\?" | "\#" | "\[" | "\]" | "\@" | "\`" | "\\" | "\&" | "\=" | "\;" | <uEscChar>
+<uEscChar>    := "\u" <hexDigit> <hexDigit> <hexDigit> <hexDigit>
+
+<xstr>        := <xstrType> "(" <str> ")"
+<xstrType>    := <alphaHi> (<alphaLo> | <alphaHi> | <digit> | '_')*
+
+<number>      := <decimal> | "INF" | "-INF" | "NaN"
+<decimal>     := ["-"] <digits> ["." <digits>] [<exp>] [<unit>]
+<exp>         := ("e"|"E") ["+"|"-"] <digits>
+<unit>        := <unitChar>*
+<unitChar>    := <alpha> | "%" | "_" | "/" | "$" | any char > 128  // see Units
+
+<date>        := YYYY-MM-DD
+<time>        := hh:mm:ss.FFFFFFFFF
+<dateTime>    := YYYY-MM-DD'T'hh:mm:ss.FFFFFFFFFz zzzz
+
+<coord>       := "C(" <coordDeg> "," <coordDeg> ")"
+<coordDeg>    := ["-"] <digits> ["." <digits>]
+
+<alphaLo>     := ('a' - 'z')
+<alphaHi>     := ('A' - 'Z')
+<alpha>       := <alphaLo> | <alphaHi>
+<digit>       := ('0' - '9')
+<digits>      := <digit> (<digit> | "_")*
+<hexDigit>    := ('a'-'f') | ('A'-'F') | digit
+```
+
+The space charater 0x20 is allowed between tokens.
+
+## 8.5 Notes
+The following are notes for implementators:
+
+### 8.5.1 Identifiers vs Keywords
+
+Identifiers must start with a lower case letter. Keywords begin with an upper case letter: "N", "T", "F", "M", "NA", "INF", "NaN", etc
+
+### 8.5.2 URIs
+
+Escape chars in URIs are used to remove special meaning for reserved characters. For example if a filename contains the # character, then it must be escaped so that the # is not treated as a fragment identifier:
+```
+`file \#2`
+```
+
+Parsers should be prepared to encounter and preserve the backslash in these cases.
+
+### 8.5.3 Number Tokens
+
+When parsing, a leading digit may be a number, date, time, or datetime. You can use the following technique to consume these scalars:
+
+1. consume all the various chars into a string
+2. if dashes and no colons must be date
+3. if colons and no dashes must be time
+4. if colons and dashes must be dateTime, check for Z or timezone
+5. must be number with optional unit
+
+### 8.5.4 DateTime
+DateTime scalars are encoded using both offset and the timezone name:
+```
+2010-11-28T07:23:02.773-08:00 Los_Angeles // negative offset and timezone
+2010-11-28T23:19:29.741+08:00 Taipei      // positive offset and timezone
+2010-11-28T18:21:58+03:00 GMT-3           // timezone may include '-'
+2010-11-28T12:22:27-03:00 GMT+3           // timezone may include '+'
+2010-01-08T05:00:00Z UTC                  // UTC example
+2010-01-08T05:00:00Z                      // UTC may omit timezone name
+```
+
+## 8.6 Version History
+**Zinc 1.0**
+
++ initial version
++ Bin format: Bin mime:"text/plain"
+
+**Zinc 2.0**
+
++ change hex RecId syntax to @ Ref syntax
++ remove support for cell display strings and metadata
++ remove support for column display strings (use dis metadata tag)
++ update Bin format: Bin(text/plain)
+
+**Zinc 3.0**
+
++ add nested lists, dicts, grids
++ add NA
++ add XStr
++ remove Bin format to use XStr syntax

@@ -59,7 +59,7 @@ The management and operations of the Corporation are governed by a Board of Dire
 
 
 # 三、Docs 文档
-## 1）简介
+## 1) 简介
 ### 1.3 Rest Http API
 To facilitate interoperability between Haystack software systems, a simple REST API is definde to exchange data over HTTP:
 
@@ -73,7 +73,7 @@ To facilitate interoperability between Haystack software systems, a simple REST 
 + building operations 译作“建筑运营”，而非“建筑作业”
 + 系统和设备术语应参阅专业文献
 
-## 2）TagModel 标签模型
+## 2) TagModel 标签模型
 ### 2.1 元模型
 In oBIX the metamodel is oBIX contracts. In RDF the metamodel is subject-predicate-object triples.
 
@@ -194,7 +194,7 @@ In the example above we have an entity with seven tags: id, site, dis, area, geo
 解析：原译不自然。
 
 
-## 3）Structure 结构
+## 3) Structure 结构
 ### 3.1 概述
 single building with its own street address
 
@@ -353,7 +353,7 @@ We often model both local weather sensors and data from an official weather stat
 
 解析：checking local sensor calibration or baseline energy normalization. 如何翻译待研究
 
-## 4）TimeZones 时区
+## 4) TimeZones 时区
 ### 4.1 概述
 Time-series data is the foundation for the sensor and operational data. This makes it critical to define a proper, unambiguous representation of time and timezones. Timezones are identified using the tz tag with a city name from the zoneinfo database (discussed below).
 
@@ -383,7 +383,7 @@ All timezones in Haystack are repesented using the city name of an entry in the 
 校对：Haystack中的所有时区都使用Olsen数据库中的一个条目的城市名称**来表示**。
 
 
-## 5）单位
+## 5) 单位
 ### 5.1 概述
 All number tag values can be annotated with an optional unit. In addition, it is required to annotate each numeric point with the unit tag. In both cases, the unit must be an identifier defined by the standard unit database.  
 
@@ -500,7 +500,7 @@ liters_per_second, L/s（升/秒）
 cubic_feet_per_minute, cfm（立方英尺每分钟）
 
 
-## 6）网格
+## 6) 网格
 ### 6.1 概述
 Grids are two-dimensional tabular representations of tagged entities. We use grids as the core data model to serialize haystack tagged data over HTTP using the [Rest]() API.  
 
@@ -543,7 +543,7 @@ Note the columns are union of all tags shared by the entities. Because not every
 解析：“实体共享”表示每个实体都有，原文并非此含义。
 
 
-## 7）过滤器
+## 7) 过滤器
 ### 7.1 概述
 Filters are used by the Rest [read op]() to perform ad hoc queries against a server.
 
@@ -600,6 +600,48 @@ See [Zinc grammar]() for productions reused from Zinc. Note that Marker, Bin, an
 原译：参见 Zinc grammar，**用于从Zinc中重复使用的结果**。请注意，不支持Marker，Bin和DateTime标量。Bools编码为"true"或"false"（Zinc 编码为“T”或“F”）。
 
 校对：**对于那些复用 Zinc 的软件产品**，可以参见[Zinc语法]()。请注意，它不支持Marker，Bin和DateTime标量。Bools被编码为“true”或“false”（Zinc将其编码为“T”或“F”）。
+
+
+## 8) Zinc
+### 8.1 概述
+Zinc stands for "Zinc Is Not CSV". Zinc is a plaintext syntax for serializing Haystack grids using a souped up CSV format. Unlike [CSV](), Zinc supports typed scalar values (such as Bool, Int, Float, Str, Date, etc) and arbitrary meta-data at the grid and column level. Unlike JSON, Zinc results in much higher compression for tabular data.
+
+原译：Zinc代表“Zinc不是CSV”。**Zinc是一种明文语法，用于使用加重CSV格式序列化Haystack网格**。与 CSV不同，Zinc支持类型的标量值（如Bool，Int，Float，Str，Date等）和网格和列级别的任意元数据。与JSON不同，Zinc对表格数据的压缩率要高得多。
+
+校对：Zinc 表示“Zinc不是CSV”。**Zinc是一种用于序列化 Haystack 网格的纯文本语法，它使用一种增强的CSV格式**。与[CSV]()不同的是，Zinc支持有类型的标量值（如Bool，Int，Float，Str，Date等）以及网格和列级别的任意元数据。 它也与JSON不同，Zinc对表格数据的压缩率要高得多。
+
+### 8.2 字面量
+Literals
+
+原译：**常量**
+
+校对：**字面量**
+
+解析：计算机术语，常量与字面量的区别
+
+
+The basic syntax of Zinc uses a custom literal syntax for each type:
+
+原译：Zinc的基本语法遵循如下规则
+
+校对：在Zinc的基本语法中，为每种类型都使用了自定义的字面量语法
+
+
+### 8.3 语法
+There are two data rows each with a Str value for firstName and a Date value for bday.
+
+原译：每个数据行都有一个Str值'firstName'和一个Date值'bday'。
+
+校对：每个数据行包含firstName的Str值和bday的Date值。
+
+
+It is common to have sparse tables where rows have a null value for a given column. This is indicated either using the N literal or by omitting a the cell entirely. For example these two rows are semantically identical:
+
+原译：通常有稀疏表，**其中行对给定列具有空值**。这可以使用 **N 字符**或者完全省略来表示。例如下面这两行语义上相同
+
+校对：通常会有稀疏表，**其中行的某些给定列是空值**。可以使用**字面量 N** 或者完全省略来表示。例如下面这两行在语义上是相同的
+
+
 
 
 
