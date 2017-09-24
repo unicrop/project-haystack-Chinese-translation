@@ -642,6 +642,80 @@ It is common to have sparse tables where rows have a null value for a given colu
 校对：通常会有稀疏表，**其中行的某些给定列是空值**。可以使用**字面量 N** 或者完全省略来表示。例如下面这两行在语义上是相同的
 
 
+## 9) Json
+### 9.1 概述
+The JSON format is designed to support 100% fidelity with the full Haystack type system.
+
+原译：JSON格式旨在通过完整的Haystack系统来支持100％的保真度。
+
+校对：JSON格式能够完整地支持 Haystack 类型系统。
+
+解析：原英文语义有问题。
+
+### 9.2 类型映射
++ Number encodings use a space between the floating point value and unit for easier parsing (in Zinc there is no space)
++ Number specials use same values as Zinc: "INF", "-INF", and "NaN"
++ Refs strings use first space to separate id from dis portions of the string
++ DateTime, Date, and Time use ISO 8601 formats exactly as specified by Zinc
+
+原译：
++ 数字编码使用浮点值和单位之间的空格来方便解析（在 Zinc 中没有空格）
++ 特殊**号码**使用与Zinc相同的值："INF"，"-INF"和"NaN"
++ **引用**字符串使用第一个空格将id与字符串的dis部分分开
++ **日期时间，日期和时间**使用完全按照Zinc指定的ISO 8601格式
+
+校对：
++ 为了更方便解析，进行数字编码时，在浮点值和单位之间使用空格分隔（Zinc中没有空格）
++ 特殊**数字**使用与Zinc相同的值，如 "INF", "-INF", "NaN"
++ **Ref** 字符串使用第一个空格将id与字符串的dis部分分开
++ **DateTime，Date和Time**使用完全符合Zinc所指定的ISO 8601格式
+
+### 9.3 网格格式
+ we have a standard mapping of Grid into JSON which is used by the REST API.
+
+ 原译：我们还有一个 Grid 的标准映射到JSON，由REST API使用。
+
+ 校对：我们还有一个Grid到JSON的标准映射，供REST API使用。
+
+
++ Grid is mapped into a JSON object with three fields: meta, cols, rows
++ The meta field is a JSON object with a required "ver" field
++ The cols field is a JSON list of column objects
++ Each column object defines a "name" field and the column metadata
++ The rows field is a list of JSON objects
++ Meta and row dicts are mapped to JSON objects
++ Dict values are mapped using type mappings defined above
+
+原译：
++ 网格被映射到具有三个字段的JSON对象：元，列，行
++ 元字段是具有必需的 "ver"字段的JSON对象
++ cols字段是列对象的JSON列表
++ 每个列对象定义一个 "name" 字段和列元数据
++ rows字段是JSON对象的列表
++ 元数据和行数据映射到JSON对象
++ **使用上面定义的类型映射映射标识值**
+
+校对：
++ Grid被映射到具有三个字段的JSON对象：元（meta）、列（cols）、行（rows）
++ 元（meta）字段是一个必须含有 "ver" 字段的JSON对象
++ 列（cols）字段是一个列对象的JSON列表
++ 每个列（cols）对象定义一个 "name" 字段和列元数据（column metadata）
++ 行（rows）字段是一个JSON对象的列表
++ 元（Meta）数据和行（row）数据被映射到JSON对象
++ **字典（Dict）值的映射来自于上述类型映射**
+
+
+Here is another example with nested lists, dicts, and grids:
+
+原译：这里是另一个**集合，词典**和网格的示例
+
+校对：这是另一个**嵌套列表、字典**和网格的例子：
+
+
+
+
+
+
 
 
 

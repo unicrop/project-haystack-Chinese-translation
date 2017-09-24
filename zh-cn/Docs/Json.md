@@ -1,6 +1,6 @@
 # 9 Json
 ## 9.1 概述
-JSON是JavaScript对象标记法，是一种通常用于数据序列化的纯文本数据格式，在RFC 4627标准中定义。JSON格式能够完整地支持Haystack标签系统的数据描述。
+JSON是JavaScript对象标记法，是一种通常用于数据序列化的纯文本数据格式，在RFC 4627标准中定义。JSON格式能够完整地支持 Haystack 类型系统。
 
 ## 9.2 类型映射
 下列为Haystack和JSON的数据类型映射关系：
@@ -27,10 +27,9 @@ XStr          "x:Type:value"
 ```
 
 注意:
-
 + 为了更方便解析，进行数字编码时，在浮点值和单位之间使用空格分隔（Zinc中没有空格）
-+ 特殊数字使用与Zinc相同的值，如 "INF", "-INF", "NaN"
-+ Refs字符串中使用第一个空格来分隔id和dis
++ 特殊数字使用与Zinc相同的值，如 "INF", "-INF", "NaN"
++ Ref 字符串使用第一个空格将id与字符串的dis部分分开
 + DateTime，Date和Time使用完全符合Zinc所指定的ISO 8601格式
 + DateTime需要有时区名称
 + 包含冒号的字符串必须用 "s:" 前缀编码
@@ -55,10 +54,10 @@ Grid到JSON的映射描述如下：
 
 + Grid被映射到具有三个字段的JSON对象：元（meta）、列（cols）、行（rows）
 + 元（meta）字段是一个必须含有 "ver" 字段的JSON对象
-+ 列（cols）字段是一个列对象的JSON数组
-+ 每个列（cols）对象定义一个 "name" 字段和列元数据（metadata）
-+ 行（rows）字段是一个JSON对象的数据
-+ 元（Meta）和行（row）被映射到JSON对象
++ 列（cols）字段是一个列对象的JSON列表
++ 每个列（cols）对象定义一个 "name" 字段和列元数据（column metadata）
++ 行（rows）字段是一个JSON对象的列表
++ 元（Meta）数据和行（row）数据被映射到JSON对象
 + 字典（Dict）值的映射来自于上述类型映射
 
 示例：
@@ -86,7 +85,7 @@ dis dis:"Equip Name",equip,siteRef,installed
 }
 ```
 
-另一个嵌套列表（list）、字典（dict）和二维表（grid）的例子：
+这是另一个嵌套列表、字典和网格的例子：
 
 ```
 // Zinc
