@@ -15,7 +15,7 @@ The Chinese translation of http://project-haystack.org/
   + [**过滤器**](zh-cn/Docs/Filters.md)(Filters)
   + [**Zinc**](zh-cn/Docs/Zinc.md)
   + [**Json**](zh-cn/Docs/Json.md)
-  + Trio
+  + [**Trio**](zh-cn/Docs/Trio.md)
   + Csv
   + [**Rest**](zh-cn/Docs/Rest.md)
   + 操作(Ops)
