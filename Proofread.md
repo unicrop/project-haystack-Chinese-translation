@@ -712,6 +712,30 @@ Here is another example with nested lists, dicts, and grids:
 校对：这是另一个**嵌套列表、字典**和网格的例子：
 
 
+## 10) Trio
+### 10.2 格式
++ entities are separated by lines beginning with "-", the lines can have as many dashes as you want
++ string values may be left unquoted if they begin with a non-ASCII Unicode character or contain only the "safe" chars: A-Z, a-z, underbar, dash, or space
++ if a newline follows the colon, then the value is an indented multi-line string terminated by the first non-indented line
++ nested grids are encoded as a multi-line string prefixed with the string value "Zinc:" on the tag line
+
+原译：
++ 实体以 "-" 开头的行分隔，*这些行可以具有所需的破折号*
++ 如果字符串值以非ASCII Unicode字符开头，或仅包含“安全”字符A-Z，则可能不引用字符串值：a-z，，下划线，破折号或空格
++ 如果换行符在冒号后面，则该值是**由第一个非缩进行终止的缩进多行字符串**
++ 嵌套网格被编码为**标记行**上以字符串值"Zinc："为前缀的多行字符串
+
+校对：
++ 实体以“-”开头的行分隔，*这些行可以根据需要包含任意多个破折号*
++ 如果字符串值以非ASCII Unicode字符开头，或仅包含“安全”字符如：A-Z，a-z，下划线，破折号或空格，则可能不引用字符串值
++ 如果换行符在冒号后面，则该值是多行缩进的字符串，并终止于第一个非缩进的行
++ 嵌套网格被编码为**标签行**上以“Zinc:”字符串值开头的多行字符串
+
+
+
+
+
+
 
 
 

@@ -4,18 +4,17 @@ Trio 代表“文本记录输入/输出”。Trio是一种简单的纯文本格�
 
 ## 10.2 格式
 Trio使用简单的纯文本格式设计，便于手动编辑：
++ 实体以“-”开头的行分隔，这些行可以根据需要包含任意多个破折号
++ 每个实体由一个或多个标签定义
++ 每个标签使用一行，其格式为“name:val”
++ 如果没有指定值，则假定该值为Marker
++ 该值使用与Zinc相同的语法进行编码
++ 如果字符串值以非ASCII Unicode字符开头，或仅包含“安全”字符如：A-Z，a-z，下划线，破折号或空格，则可能不引用字符串值
++ 如果换行符在冒号后面，则该值是多行缩进的字符串，并由第一个非缩进的行终止
++ 嵌套网格被编码为标签行上以“Zinc:”字符串值开头的多行字符串
++ 可以“//”用作行注释
 
-+ entities are separated by lines beginning with "-", the lines can have as many dashes as you want
-+ each entity is defined by one or more tags
-+ one line is used per tag formatted as "name:val"
-+ if no value is specified, the value is assumed to be Marker
-+ the value is encoded using the same grammar as Zinc
-+ string values may be left unquoted if they begin with a non-ASCII Unicode character or contain only the "safe" chars: A-Z, a-z, underbar, dash, or space
-+ if a newline follows the colon, then the value is an indented multi-line string terminated by the first non-indented line
-+ nested grids are encoded as a multi-line string prefixed with the string value "Zinc:" on the tag line
-+ can use // as line comment
-
-Here is a simple example:
+这是一个简单的例子：
 ```
 dis: "Site 1"
 site
@@ -32,8 +31,7 @@ site
 summary:
   Entities are separated by one more dashes
 ```
-
-Here is an example with a nested list, dict, and grid value:
+这是一个嵌套列表，dict和grid值的示例：
 ```
 // Zinc
 ver:"3.0"
