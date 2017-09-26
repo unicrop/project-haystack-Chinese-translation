@@ -732,6 +732,56 @@ Here is another example with nested lists, dicts, and grids:
 + 嵌套网格被编码为**标签行**上以“Zinc:”字符串值开头的多行字符串
 
 
+## 11) Csv
+### 11.1 概述
+CSV provides a simple way to get tabular data into other applications such as Excel.
+
+原译：CSV提供了一种简单的方法来获取表格数据到其他应用程序，如Excel。
+
+校对：CSV提供了一种将表格数据置入其他应用程序的简单方法，如Excel。
+
+
+### 11.2 网格格式
+Haystack defines a standard mapping of grids into CSV which is used by the [REST API](). Due to its simplicity, CSV does not provide full fidelity with the Haystack grid model -- metadata and type information is discarded.
+
+原译：Haystack**将网格的标准映射定义为由[REST API]`Rest`使用的CSV** 。由于其简单性，CSV**不能完全保证Haystack网格模型** -- 元数据和类型信息被丢弃。
+
+校对：Haystack**定义了供[REST API]()使用的网格到CSV的标准映射**。由于它很简单，CSV**不能为Haystack网格模型提供完整的保真度** -- 元数据和类型信息被丢弃。
+
+
++ First row is the column display names (programmatic names and meta is discarded)
++ Subsequent rows map to rows from the Grid
++ Marker cells are encoded as the Unicode checkmark code point U+2713
++ Null cells are encoded as the empty string
++ Ref cells are encoded as "@id dis", for example "@3ef7 Site-1"
++ Bools are encoded as "true" or "false"
++ Strs and Uris are encoded using their unescaped value
++ Everything else is encoded using its [Zinc]() encoding
+
+原译：
++ 第一行是列显示名称（**程序名称**和元数据被丢弃）
++ 随后的行映射到网格中的行
++ **标记单元格被编码为Unicode复选标记代码点U + 2713**
++ **空**单元被编码为空字符串
++ Ref单元格被编码为"@id dis"，例如"@ 3ef7 Site-1"
++ Bools被编码为"true"或"false"
++ Strs和Uris使用它们的未转义值进行编码
++ **一切都**使用其 [Zinc]() 编码进行编码
+
+
+校对：
++ 第一行是列的显示名称（**编程名称**和元数据被丢弃）
++ 随后的行映射到网格中的行
++ **标记单元格被编码为Unicode的 ✓ 号，其Unicode码为U+2713**
++ **Null** 单元格被编码为空字符串
++ Ref 单元格被编码为“@id dis”, 例如“@3ef7 Site-1”
++ Bool 被编码为“true”或“false”
++ Str 和 Uri 使用它们的未转义值进行编码
++ **其他的都**使用其[Zinc]()格式进行编码
+
+
+
+
 
 
 
