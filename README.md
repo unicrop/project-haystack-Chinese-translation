@@ -16,7 +16,7 @@ The Chinese translation of http://project-haystack.org/
   + [**Zinc**](zh-cn/Docs/Zinc.md)
   + [**Json**](zh-cn/Docs/Json.md)
   + [**Trio**](zh-cn/Docs/Trio.md)
-  + Csv
+  + [**Csv**](zh-cn/Docs/Csv.md)
   + [**Rest**](zh-cn/Docs/Rest.md)
   + 操作(Ops)
   + 认证(Auth)
