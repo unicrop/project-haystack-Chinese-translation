@@ -3,8 +3,6 @@
 This chapter defines the standardized operations of the Haystack REST API. Each operation is specifies the format and options of the request grid and response grid.
 
 ## 13.2 About
-Haystack定义了供[REST API]()使用的网格到CSV的标准映射。由于它很简单，CSV不能为Haystack网格模型提供完整的保真度 -- 元数据和类型信息被丢弃。
-
 The about op queries basic information about the server.
 
 **Request:** empty grid
@@ -163,5 +161,94 @@ If the reponse is an [error grid](), then the client must assume the watch is no
 
 
 ## 13.10 PointWrite
+The pointWrite op is used to read the current status of a [writable]() point's priority array and optionally write to a given level.
 
+**Request (read):** a grid with a single row and following columns:
 
++ id: Ref identifier of writable point
+
+**Request (write):** a grid with a single row and following columns:
+
++ id: Ref identifier of writable point
++ level: Number from 1-17 for level to write
++ val: value to write or null to auto the level
++ who: optional username performing the write, otherwise user dis is used
++ duration: Number with duration unit if setting level 8
+
+**Response:** returns a grid with current priority array state with following columns:
+
++ level: number from 1 - 17 (17 is default)
++ levelDis: human description of level
++ val: current value at level or null
++ who: who last controlled the value at this level
+
+## 13.11 HisRead
+The hisRead op is used to read a time-series data from historized point.
+
+**Request:** a grid with a single row and following columns:
+
++ id: Ref identifier of historized point
++ range: Str encoding of a date-time range
+
+**Response:** rows of the result grid represent timetamp/value pairs with a DateTime ts column and a val column for each scalar value. In addition the grid metadata includes:
+
++ id: Ref of the point we read
++ hisStart: DateTime timestamp for exclusive range start in point's timezone
++ hisEnd: DateTime timestamp for inclusive range end in point's timezone
+
+The range Str is formatted as one of the following options:
+
++ "today"
++ "yesterday"
++ "{date}"
++ "{date},{date}"
++ "{dateTime},{dateTime}"
++ "{dateTime}" // anything after given timestamp
+
+Ranges are exclusive of start timestamp and inclusive of end timestamp. The {date} and {dateTime} options must be correctly Zinc encoded. DateTime based ranges must be in the same timezone of the entity (timezone conversion is explicitly disallowed). Date based ranges are always inferred to be from midnight of starting date to midnight of the day after ending date using the timezone of the his entity being queried.
+
+Example:
+```
+// request
+ver:"3.0"
+id,range
+@someTemp,"2012-10-01"
+
+// reponse
+ver:"3.0" id:@someTemp hisStart:2012-10-01T00:00:00-04:00 New_York hisEnd:2012-10-02T00:00:00-04:00 New_York
+ts,val
+2012-10-01T00:15:00-04:00 New_York,72.1°F
+2012-10-01T00:30:00-04:00 New_York,74.2°F
+2012-10-01T00:45:00-04:00 New_York,75.0°F
+..
+```
+
+## 13.12 HisWrite
+The hisWrite op is used to post new time-series data to a historized point. The point must already be configured on the server and assigned a unique identifier.
+
+**Request:** a grid metadata must define id Ref of point to write to. The rows define new timestamp/value samples to write with following columns:
+
++ ts: DateTime timestamp of sample in point's timezone
++ val: value of each timestamp sample
+
+**Response:** empty grid
+
+Clients should attempt to avoid writing duplicate data. But servers must gracefully handle clients posting out-of-order or duplicate history data. The timestamp and value kind of the posted data must match the entity's configured timezone and kind. Numeric data posted must either be unitless or must match the entity's configured unit. Timezone, value kind or unit conversion is explicitly disallowed.
+
+Example:
+
+Here is an example which posts some new history data to a point:
+```
+// request
+ver:"3.0" id:@hisId
+ts,val
+2012-04-21T08:30:00-04:00 New_York,72.2
+2012-04-21T08:45:00-04:00 New_York,76.3
+```
+
+## 13.13 Invoke Action
+The invokeAction op is used to invoke a user action on a target record. Actions may be used to change setpoints or initiate other types of configuration/control actions. An action is modeled a function which takes zero or more parameters. The arguments for the action's parameters are passed in the request. It is a server local matter to decide what actions are available on a given target and how they are parameterized.
+
+**Request:** grid metadata must define id Ref of target rec and action Str name. A single row defines the arguments to the action.
+
+**Response:** undefined
